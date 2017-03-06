@@ -1,0 +1,39 @@
+# VERSIONING TEMPLATE
+
+## When adding a feature
+
+### Setup
+* clone master repo from Github
+* create branch for your feature  \\ $ git branch "name-of-feature-branch"
+* switch to feature branch \\ $ git checkout "name-of-feature-branch"
+* confirm switch \\ $ git branch (prints current branch to terminal)
+
+* write your code, with regular local commits
+
+### When ready to push
+* pull Github master to local master
+    * switch to local master branch \\ $ git checkout "master-branch"
+    * confirm switch \\ $ git branch (prints current branch to terminal)
+    * pull from GH master to local master \\  $ git pull origin master
+
+* if merge conflicts exist, resolve
+    * code above ===== is your local code. code below is from origin master.
+    * before changing code from master, check with the collaborator that wrote that code!
+
+* after conflicts are resolved, merge local master into feature branch
+    * switch to feature branch \\ $ git checkout "name-of-feature-branch"
+    * confirm switch \\ $ git branch (prints current branch to terminal)
+    * pull from local master to feature branch \\ $ git merge master
+    * if merge conflicts exist, resolve
+
+* at this point all previous functionality should be present
+    * test to make sure program works as expected
+
+* push local feature branch to GH feature branch \\ $ git push origin name-of-feature-branch
+* create pull request
+    * nav to feature page on Github
+    * click on New Pull Request -- Create Pull Request
+    * include description of new features
+
+* I review changes between pull request and GitHub master and complete merge if it all looks good
+* Do Not delete feature branch until pull request has been completed
