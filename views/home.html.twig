@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <script src="js/jquery-3.1.1.js"></script>
+        <script src="js/scripts.js"></script>
+        <script>
+        var game = JSON.parse({{game|json_encode|raw}});
+        Object.setPrototypeOf(game,Game.prototype);
+
+        </script>
+        <meta charset="utf-8">
+        <title>Concept Testr</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Animation</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box" id="left_square">
+                        <h2>Phrase in this box</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box" id="center_square">
+                        <h2>Word in this box</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box" id="right_square">
+                        <h2>Alphabet in this box?</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
