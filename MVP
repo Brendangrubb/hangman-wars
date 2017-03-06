@@ -1,0 +1,47 @@
+our MVP, to later be put in the README
+
+The game will ...
+* allow user to choose difficulty level
+* queue and display a phrase
+* present one word from the phrase
+* allow user to input a letter
+    * if letter is in word
+        * display correct guess in word
+        * display remaining letters (letters not yet chosen)
+    * if letter is not in word
+        * decrement user point
+        * display remaining letters (letters not yet chosen)
+* if user guesses entire word
+    * display word throughout phrase
+    * present new word from phrase
+* if user runs out of points before word is guessed
+    * display loss
+* if user gets all words in phrase without loss
+    * compare user score to computer difficulty level
+        * if user score is higher
+            * display win
+            * award points
+            * initiate next phase
+        * if computer score is higher
+            * display loss
+            * initiate next phase
+* currently there is no ultimate win defined. player plays through turns, rounds and phases gaining points as the game increases in difficulty
+* difficulty level is defined by
+    * more complex phrases
+    * higher computer score (harder to win points at phase-ends)
+
+
+### Turn is defined as
+* user selecting a letter and the program determining whether or not it is in the presented word.
+    * win result- chosen letter in word, allowed to guess another letter
+    * loss result- chosen letter not in word, lose a point and allowed to guess another letter
+
+### Round is defined as
+* user being presented with a word from a phrase and selecting letters until the word is guessed
+    * win result- all letters in word guessed with points remaining, new word is displayed
+    * loss result- all letters in word not guessed before losing all points, end of game
+
+### Phase is defined as
+* user being presented from a phrase, from which they are given a specific word. user must guess all correct letters from all words until the entire phrase is populated
+    * win result- after all words in phrase are guessed with points remaining, user points compared to computer difficulty number. if user points are higher, points are awarded. new, more difficult phrase is presented
+    * loss result- after all words in phrase are guessed with points remaining, user points compared to computer difficulty number. if user points are lower, no points are awarded. new, more difficult phrase is presented
