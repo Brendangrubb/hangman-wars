@@ -6,7 +6,7 @@ function Phase() {
     this.numberOfWords = 7;
     this.roundOrder = [2,4,1,6,3,7,5]; //randomize on server
     this.roundIndex = 0;
-    this.currentword = this.roundOrder[0];
+    this.currentword = "";
     this.word1 = ["f","e","a","r"];
     this.word2 = ["i","s"];
     this.word3 = ["t", "h", "e"];
@@ -55,10 +55,10 @@ run checkRoundWin()
 
 Phase.prototype.initialize = function()
 {
-    var currentword = 'word' + this.roundOrder[this.roundIndex];
+    this.currentword = 'word' + this.roundOrder[this.roundIndex];
     // empty display, then fill with correct number of underscores
     this.displayLetters = [];
-    for (i=0;i<this.[currentword].length;i++)
+    for (i=0;i<this[this.currentword].length;i++)
     {
         this.displayLetters.push("_");
     }
@@ -75,19 +75,51 @@ Phase.prototype.display = function()
 
 Phase.prototype.checkLetter = function(letter)
 {
-    //add to guessed letters, remove from available letters, decrement score or update display as appropriate
+    //add to guessed letters,
     this.guessLetters.push(letter);
-    this.availableLetters.spli
+    // remove from available letters,
+    var indexAlpha = this.availableLetters.indexOf(letter);
+    this.availableLetters.splice(indexAlpha, 1, "_");
+    // decrement score or update display as appropriate
+    var isCorrect = (this[this.currentword].indexOf(letter) >= 0)
+    if (isCorrect)
+    {
+        for (i=0; i<this[this.currentword];i++)
+        {
+            if (letter === this[this.currentword][i]){
+                this.displayLetters.splice(i,1,letter);
+            }
+        }
+    } else {
+        this.score -= 1;
+    }
 }
 
 Phase.prototype.checkPhase = function()
 {
-    //check if score === 0, then if all of displayPhrase is filled in.  Trigger win or loss as appropriate.
+    //check if score === 0, trigger loss
+    if (this.score <= 0) {
+        alert("loss!"); //replace with navigation to loss page
+    }
+    // then if all of displayPhrase is filled in, trigger win
+    if (this.roundIndex > this.roundOrder.length) {
+        alert("Winzzz!"); //replace with navigation to win page
+    }
 }
 
 Phase.prototype.checkRound = function()
 {
     // check if display array matches the current word, initialize if yes.
+    if (this.displayLetters.join() === this[currentword].join() )
+    {
+        for(i = 0; i < this.numberOfWords; i++) {
+            if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
+                this.displayPhrase.splice(this.phrasePositions[i], 1, this[currentword]);
+            }
+        }
+
+        this.initialize();
+    }
 }
 
 
