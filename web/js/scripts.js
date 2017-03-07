@@ -1,24 +1,24 @@
 // for phrase Fear is the path to the dark side
 
 function Phase() {
-    this.phrase = "Fear is the path to the dark side";
-    this.phrasePositions = [1,2,3,4,5,3,6,7];
-    this.numberOfWords = 7;
-    this.roundOrder = [3,4,1,6,2,7,5]; //randomize on server
-    this.roundIndex = 0;
-    this.currentword = "";
-    this.word1 = ["f","e","a","r"];
-    this.word2 = ["i","s"];
-    this.word3 = ["t", "h", "e"];
-    this.word4 = ["p","a", "t", "h"];
-    this.word5 = ["t","o"];
-    this.word6 = ["d", "a", "r", "k"];
-    this.word7 = ["s", "i", "d" ,"e"];
-    this.guessLetters = [];
-    this.displayLetters = []; //initialize funciton pushes underscores for lenght of selected word
-    this.displayPhrase = ["____", "__", "___", "____", "__", "___", "____", "____"]; //server fills with underscores for all words
-    this.score = 40;
-    this.availableLetters = [];
+    this.phrase;
+    this.phrasePositions;
+    this.numberOfWords;
+    this.roundOrder; //randomize on server
+    this.roundIndex;
+    this.currentWord;
+    this.word1;
+    this.word2;
+    this.word3;
+    this.word4;
+    this.word5;
+    this.word6;
+    this.word7;
+    this.guessLetters;
+    this.displayLetters; //initialize funciton pushes underscores for lenght of selected word
+    this.displayPhrase;
+    this.score;
+    this.availableLetters;
 }
 
 /* functions and data needed:
@@ -55,10 +55,10 @@ run checkRoundWin()
 
 Phase.prototype.initialize = function()
 {
-    this.currentword = 'word' + this.roundOrder[this.roundIndex];
+    this.currentWord = 'word' + this.roundOrder[this.roundIndex];
     // empty display, then fill with correct number of underscores
     this.displayLetters = [];
-    for (i=0;i<this[this.currentword].length;i++)
+    for (i=0;i<this[this.currentWord].length;i++)
     {
         this.displayLetters.push("_");
     }
@@ -79,12 +79,12 @@ Phase.prototype.checkLetter = function(letter)
     var indexAlpha = this.availableLetters.indexOf(letter);
     this.availableLetters.splice(indexAlpha, 1, "_");
     // decrement score or update display as appropriate
-    var isCorrect = (this[this.currentword].indexOf(letter) >= 0);
+    var isCorrect = (this[this.currentWord].indexOf(letter) >= 0);
     if (isCorrect)
     {
-        for (i=0; i<this[this.currentword].length;i++)
+        for (i=0; i<this[this.currentWord].length;i++)
         {
-            if (letter === this[this.currentword][i]){
+            if (letter === this[this.currentWord][i]){
                 this.displayLetters.splice(i,1,letter);
             }
         }
@@ -108,11 +108,11 @@ Phase.prototype.checkPhase = function()
 Phase.prototype.checkRound = function()
 {
     // check if display array matches the current word, initialize if yes.
-    if (this.displayLetters.join() === this[this.currentword].join() )
+    if (this.displayLetters.join() === this[this.currentWord].join() )
     {
         for(i = 0; i < this.numberOfWords; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
-                this.displayPhrase.splice(i, 1, this[this.currentword]);
+                this.displayPhrase.splice(i, 1, this[this.currentWord]);
             }
         }
         this.roundIndex ++;
