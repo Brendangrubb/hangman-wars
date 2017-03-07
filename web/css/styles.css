@@ -1,3 +1,38 @@
+body {
+  background: url('../img/hangman-play-headerbg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: fixed;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+.container {
+  margin-top: 32%;
+}
+
+.left {
+  text-align: left;
+}
+
+.middle {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+#computer-knight, #player-knight {
+  width: 50%;
+}
+
+#computer_score, #player_score {
+  font-size: 120%;
+  color: red;
+}
+
+
 .box {
     border: 1px solid black;
     text-align: center;

@@ -77,6 +77,9 @@ Phase.prototype.display = function()
   $("#availableLetters").text(this.availableLetters.join(" "));
   //display letters that have been guessed so Far
   $("#alreadyGuessed").text(this.guessLetters.join(" "));
+  //display scores for player and computer-knight
+  $("#player_score").text(this.score);
+  $("#computer_score").text("40");
 }
 
 Phase.prototype.checkLetter = function(letter)
