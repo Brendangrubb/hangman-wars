@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+     Options +FollowSymLinks -MultiViews
+     # Turn mod_rewrite on
+     RewriteEngine On
+     RewriteBase /
+
+     ## If the request is for a valid directory
+     RewriteCond %{REQUEST_FILENAME} -d [OR]
+     ## If the request is for a valid file
+     RewriteCond %{REQUEST_FILENAME} -f [OR]
+     ## If the request is for a valid link
+     RewriteCond %{REQUEST_FILENAME} -l
+     ## don't do anything
+     RewriteRule ^ - [L]
+
+     # if requested files exists in /web then forward it there
+     RewriteCond %{DOCUMENT_ROOT}/web/$1 -f
+     RewriteRule ^(.+?)/?$ /web/$1 [L]
+
+     # if requested files doesn't exist in /web then forward it to index.php
+     RewriteCond %{DOCUMENT_ROOT}/web/$1 !-f
+     RewriteRule ^(.+?)/?$ ./index.php [L]
+   </IfModule>
