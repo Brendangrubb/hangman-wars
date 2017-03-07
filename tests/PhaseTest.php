@@ -27,6 +27,21 @@
             $this->assertEquals("Fear is the path to the dark side", $result);
         }
 
+        function test_setValues()
+        {
+            // Arrange
+            $phrase_id = 1;
+            $test_phase = new Phase();
+            $test_phase->setPhrase($phrase_id);
+
+            // Act
+            $test_phase->setValues();
+            var_dump($test_phase);
+
+            // Assert
+            $this->assertEquals($phrase_id, $phrase_id);
+        }
+
     }
 
 

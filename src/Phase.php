@@ -25,6 +25,8 @@ class Phase
         $this->guessLetters = [];
         $this->roundIndex = 0;
         $this->currentWord = "";
+        $this->roundOrder = [];
+        $this->displayPhrase = [];
     }
 
     function getPhrase()
@@ -46,7 +48,7 @@ class Phase
         $result = $query->fetch();
         $this->phrase = $result['phrase'];
     }
-
+    // need to remove duplicate words and fix phrase positions counting
     function setValues()
     {
         // split phrase into array of individual words (explode by " ", return array of strings)
@@ -56,15 +58,18 @@ class Phase
         //Initialize phrase positions with number of dummy characters equal to phrase length
         $this->phrasePositions = array_fill(0, count($split_phrase), "_");
         //for each word in phrase:
-        foreach ($split_phrase as $key => $word)
+        $unique_phrase = array_unique($split_phrase);
+        $word_number = 0;
+        foreach ($unique_phrase as $word)
         {
+            $word_number += 1;
             //create property of this.("word" . 1-index of loop) = str_split of the word.
-            $this->{"word" . ($key + 1)} = explode('', $word);
+            $this->{"word" . $word_number} = str_split($word);
             //push 1-index integer into roundOrder array
-            array_push($this->$roundOrder, ($key + 1));
+            array_push($this->roundOrder, $word_number);
             //push word.length number of underscores into displayPhrase array
             $displayPhrase = array_fill(0, strlen($word), "_");
-            array_push($this->displayPhrase, implode('', $displayPhrase);
+            array_push($this->displayPhrase, implode('', $displayPhrase));
             //add values to phrasePositions:
             //loop over phrase array
             foreach ($split_phrase as $index => $replace_word)
@@ -72,7 +77,7 @@ class Phase
                 //  if word == word in array
                 //  write word number into phrase positions at index of found word
                 if ($replace_word == $word) {
-                    array_splice($this->phrasePositions, $index, 1, ($key + 1);
+                    array_splice($this->phrasePositions, $index, 1, $word_number);
                 }
             }
 
