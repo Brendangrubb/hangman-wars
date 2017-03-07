@@ -18,6 +18,7 @@ function Phase() {
     this.displayLetters = []; //initialize funciton pushes underscores for lenght of selected word
     this.displayPhrase = ["____", "__", "___", "____", "__", "___", "____", "____"]; //server fills with underscores for all words
     this.score = 40;
+    this.computer_score = 40;
     this.availableLetters = [];
 }
 
@@ -65,6 +66,7 @@ Phase.prototype.initialize = function()
     // set available letters to full alphabet
     this.availableLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     this.guessLetters = [];
+
 }
 
 Phase.prototype.display = function()
@@ -79,7 +81,7 @@ Phase.prototype.display = function()
   $("#alreadyGuessed").text(this.guessLetters.join(" "));
   //display scores for player and computer-knight
   $("#player_score").text(this.score);
-  $("#computer_score").text("40");
+  $("#computer_score").text(this.computer_score);
 }
 
 Phase.prototype.checkLetter = function(letter)
@@ -108,11 +110,35 @@ Phase.prototype.checkPhase = function()
 {
     //check if score === 0, trigger loss
     if (this.score <= 0) {
-        alert("loss!"); //replace with navigation to loss page
+      $('#end_state').show();
+      $('#total_loss').show();
+      $("#play_state").hide();
     }
     // then if all of displayPhrase is filled in, trigger win
     if (this.displayPhrase.join("").indexOf("_") < 0) {
-        alert("Winzzz!"); //replace with navigation to win page
+      var player_strength = this.score + (Math.floor(Math.random()*10));
+      var computer_strength = this.computer_score + (Math.floor(Math.random()*10));
+      var battle_result = player_strength - computer_strength;
+      if (battle_result < 0)
+      {
+        this.score = 0;
+        this.computer_score = 0;
+        oFormObject.elements["player_score"].value = this.score;
+        oFormObject.elements["computer_score"].value = this.computer_score;
+        $('#end_state').show();
+        $("#battle_lose").show();
+        $("#play_state").hide();
+
+
+        //Lovely Animation
+      } else {
+        this.computer_score = 0;
+        oFormObject.elements["player_score"].value = this.score;
+        oFormObject.elements["computer_score"].value = this.computer_score;
+        $('#end_state').show();
+        $("#battle_win").show();
+        $("#play_state").hide();
+      }
     }
 }
 
@@ -127,7 +153,6 @@ Phase.prototype.checkRound = function()
             }
         }
         this.roundIndex ++;
-        // this.checkPhase();
         if (this.roundIndex < this.numberOfWords) {
           this.initialize();
         }

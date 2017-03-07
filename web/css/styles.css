@@ -38,3 +38,7 @@ body {
     border: 1px solid black;
     text-align: center;
 }
+
+#battle_win, #battle_lose, #total_loss, #end_state {
+  display: none;
+}

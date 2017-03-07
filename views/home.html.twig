@@ -16,7 +16,32 @@
         <title>Concept Testr</title>
     </head>
     <body>
-        <div class="container">
+      <div class="container" id="end_state">
+        <div id="total_loss" class="">
+          <h1>Sorry, you failed to guess before your army was slaughtered.</h1>
+          <form class="" action="/total_loss" method="get">
+            <button class="btn btn-danger" type="submit" name="button">Try again!</button>
+          </form>
+        </div>
+        <div id="battle_win" class="">
+          <h1>Congratulations, your army won!</h1>
+          <form class="" action="/win_condition" method="post">
+            <input type="hidden" name="player_score" value="">
+            <input type="hidden" name="computer_score" value="">
+            <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
+          </form>
+        </div>
+        <div id="battle_lose" class="">
+          <h1>Sorry, your army lost</h1>
+          <form class="" action="/loss_condition" method="post">
+            <input type="hidden" name="player_score" value="">
+            <input type="hidden" name="computer_score" value="">
+            <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
+          </form>
+        </div>
+
+      </div>
+        <div class="container" id="play_state">
           <div class="row">
             <div class="col-md-4 left">
               <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight">
@@ -30,12 +55,11 @@
           </div>
           <div class="row">
             <div class="col-md-6 left">
-              <h2>Number of soldiers: <span id="player_score">Scores</span></h2>
+              <h2>Soldiers remaining: <span id="player_score">Scores</span></h2>
             </div>
             <div class="col-md-6 right">
               <h2>Soldiers remaining: <span id="computer_score">Scores</span></h2>
             </div>
-
           </div>
             <div class="row">
                 <div class="col-sm-12">
