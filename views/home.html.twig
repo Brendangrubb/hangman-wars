@@ -7,9 +7,8 @@
         <script src="js/scripts.js"></script>
         <script>
 
-        var phase = new Phase();
-        // var game = JSON.parse({{game|json_encode|raw}});
-        // Object.setPrototypeOf(game,Phase.prototype);
+        var phase = {{phase|json_encode|raw}};
+        Object.setPrototypeOf(phase,Phase.prototype);
 
         </script>
         <meta charset="utf-8">
@@ -18,7 +17,7 @@
     <body>
         <div class="container">
             <div class="jumbotron">
-                <h1>Animation</h1>
+                <p>{{phase|json_encode|raw}}</p>
             </div>
             <div class="row">
                 <div class="col-sm-12">

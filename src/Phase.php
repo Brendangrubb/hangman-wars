@@ -3,19 +3,19 @@
 class Phase
 {
     // constant values
-    private $phrase;
-    private $score;
-    private $roundIndex;
-    private $currentWord;
-    private $availableLetters;
-    private $guessLetters;
-    private $displayLetters;
+    public $phrase;
+    public $score;
+    public $roundIndex;
+    public $currentWord;
+    public $availableLetters;
+    public $guessLetters;
+    public $displayLetters;
 
     //variable values
-    private $numberOfWords;
-    private $roundOrder;
-    private $phrasePositions;
-    private $displayPhrase;
+    public $numberOfWords;
+    public $roundOrder;
+    public $phrasePositions;
+    public $displayPhrase;
 
     function __construct()
     {
@@ -53,12 +53,19 @@ class Phase
     {
         // split phrase into array of individual words (explode by " ", return array of strings)
         $split_phrase = explode(' ', $this->phrase);
-        //count number of words in phrase (numberOfWords = phrase.length)
-        $this->numberOfWords = count($split_phrase);
         //Initialize phrase positions with number of dummy characters equal to phrase length
         $this->phrasePositions = array_fill(0, count($split_phrase), "_");
-        //for each word in phrase:
+        //count number of unique words in phrase (numberOfWords = phrase.length)
         $unique_phrase = array_unique($split_phrase);
+        $this->numberOfWords = count($unique_phrase);
+        //push word.length number of underscores into displayPhrase array
+        foreach ($split_phrase as $word)
+        {
+            $displayPhrase = array_fill(0, strlen($word), "_");
+            array_push($this->displayPhrase, implode('', $displayPhrase));
+
+        }
+        //for each word in phrase:
         $word_number = 0;
         foreach ($unique_phrase as $word)
         {
@@ -67,9 +74,6 @@ class Phase
             $this->{"word" . $word_number} = str_split($word);
             //push 1-index integer into roundOrder array
             array_push($this->roundOrder, $word_number);
-            //push word.length number of underscores into displayPhrase array
-            $displayPhrase = array_fill(0, strlen($word), "_");
-            array_push($this->displayPhrase, implode('', $displayPhrase));
             //add values to phrasePositions:
             //loop over phrase array
             foreach ($split_phrase as $index => $replace_word)
