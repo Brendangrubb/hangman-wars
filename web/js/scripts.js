@@ -75,6 +75,8 @@ Phase.prototype.display = function()
   $("#displayLetters").text(this.displayLetters.join(" "));
   //display available alphabet
   $("#availableLetters").text(this.availableLetters.join(" "));
+  //display letters that have been guessed so Far
+  $("#alreadyGuessed").text(this.guessLetters.join(" "));
 }
 
 Phase.prototype.checkLetter = function(letter)
@@ -133,15 +135,20 @@ var phase = new Phase();
 phase.initialize();
 phase.display();
 
-  $("#guess_letter_form").submit(function(event) {
-    event.preventDefault();
+  $("#guess_letter_form").on("input", function() {
     var guessedLetter = ($("input#guess_letter").val());
-    // alert(guessedLetter);
+    alert(guessedLetter);
     phase.checkLetter(guessedLetter);
     phase.checkPhase();
     phase.checkRound();
     phase.display();
+    $("input#guess_letter").val("");
   });
+
+  // $("#guess_letter_form").submit(function(event) {
+  //   event.preventDefault();
+  //   var guessedLetter = ($("input#guess_letter").val());
+  // });
     // $(".box").click(function(){
     //     var length = Object.keys(game).length;
     //     var rando = Math.floor((Math.random() * length) + 1);
