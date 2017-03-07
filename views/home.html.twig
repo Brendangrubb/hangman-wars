@@ -23,17 +23,25 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="box" id="left_square">
-                        <h2>Phrase in this box</h2>
+                        <h2 id="displayPhrase">Phrase in this box</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="box" id="center_square">
-                        <h2>Word in this box</h2>
+                        <h2 id="displayLetters">Word in this box</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="box" id="right_square">
-                        <h2>Alphabet in this box?</h2>
+                        <h2 id="availableLetters">Alphabet in this box?</h2>
+                        <br>
+                        <form id="guess_letter_form">
+                          <div class="form-group">
+                            <label for="guess_letter">Guess a Letter:</label>
+                            <input type="text" id="guess_letter" class="form-control">
+                          </div>
+                          <button type="submit" class="btn btn-info">Guess!</button>
+                        </form>
                     </div>
                 </div>
             </div>

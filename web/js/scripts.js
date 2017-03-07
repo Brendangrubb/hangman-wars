@@ -64,11 +64,17 @@ Phase.prototype.initialize = function()
     }
     // set available letters to full alphabet
     this.availableLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    this.guessLetters = [];
 }
 
 Phase.prototype.display = function()
 {
+  //display full phrase
+  $("#displayPhrase").text(this.displayPhrase.join(" "));
     // display current word, all previously guessed words
+  $("#displayLetters").text(this.displayLetters.join(" "));
+  //display available alphabet
+  $("#availableLetters").text(this.availableLetters.join(" "));
 }
 
 Phase.prototype.checkLetter = function(letter)
@@ -112,7 +118,7 @@ Phase.prototype.checkRound = function()
     {
         for(i = 0; i < this.numberOfWords; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
-                this.displayPhrase.splice(i, 1, this[this.currentword]);
+                this.displayPhrase.splice(i, 1, this[this.currentword].join(""));
             }
         }
         this.roundIndex ++;
@@ -123,7 +129,19 @@ Phase.prototype.checkRound = function()
 
 
 $(document).ready(function(){
+var phase = new Phase();
+phase.initialize();
+phase.display();
 
+  $("#guess_letter_form").submit(function(event) {
+    event.preventDefault();
+    var guessedLetter = ($("input#guess_letter").val());
+    // alert(guessedLetter);
+    phase.checkLetter(guessedLetter);
+    phase.checkPhase();
+    phase.checkRound();
+    phase.display();
+  });
     // $(".box").click(function(){
     //     var length = Object.keys(game).length;
     //     var rando = Math.floor((Math.random() * length) + 1);
