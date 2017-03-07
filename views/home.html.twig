@@ -7,9 +7,8 @@
         <script src="js/scripts.js"></script>
         <script>
 
-        var phase = new Phase();
-        // var game = JSON.parse({{game|json_encode|raw}});
-        // Object.setPrototypeOf(game,Phase.prototype);
+        var phase = {{phase|json_encode|raw}};
+        Object.setPrototypeOf(phase,Phase.prototype);
 
         </script>
         <meta charset="utf-8">

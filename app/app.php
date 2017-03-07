@@ -3,16 +3,16 @@
 date_default_timezone_set('America/Los_Angeles');
 
  require_once __DIR__ . '/../vendor/autoload.php';
- require_once __DIR__ . '/../src/Gamer.php';
+ require_once __DIR__ . '/../src/Phase.php';
 
  $app = new Silex\Application();
 
  $app['debug']=true;
 
- // $server = 'mysql:host=localhost:8889;dbname=library';
- // $username = 'root';
- // $password = 'root';
- // $DB = new PDO($server, $username, $password);
+ $server = 'mysql:host=localhost:8889;dbname=hangman_wars';
+ $username = 'root';
+ $password = 'root';
+ $DB = new PDO($server, $username, $password);
 
  use Symfony\Component\HttpFoundation\Request;
  Request::enableHttpMethodParameterOverride();
@@ -22,10 +22,12 @@ date_default_timezone_set('America/Los_Angeles');
  ]);
 
  $app->get("/", function() use ($app) {
-      $game = new Gamer();
-      $game = json_encode($game);
 
-     return $app['twig']->render("home.html.twig", array('game' => $game));
+    $phase = new Phase();
+    $phase->setPhrase(2);
+    $phase->setScore();
+    $phase->setValues();
+    return $app['twig']->render("home.html.twig", array('phase' => $phase));
  });
 
  $app->post("/loss_condition", function() use ($app) {
