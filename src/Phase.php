@@ -39,6 +39,7 @@ class Phase
     {
         // initialize score
         $this->score = 40;
+        $this->computer_score = 40;
     }
 
     function setPhrase($search_id)

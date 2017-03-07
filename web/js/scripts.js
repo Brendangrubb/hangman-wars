@@ -1,6 +1,7 @@
 // for phrase Fear is the path to the dark side
 
 function Phase() {
+
     this.phrase;
     this.phrasePositions;
     this.numberOfWords;
@@ -18,7 +19,9 @@ function Phase() {
     this.displayLetters; //initialize funciton pushes underscores for lenght of selected word
     this.displayPhrase;
     this.score;
+    this.computer_score = 40;
     this.availableLetters;
+
 }
 
 /* functions and data needed:
@@ -64,11 +67,23 @@ Phase.prototype.initialize = function()
     }
     // set available letters to full alphabet
     this.availableLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    this.guessLetters = [];
+
 }
 
 Phase.prototype.display = function()
 {
+  //display full phrase
+  $("#displayPhrase").text(this.displayPhrase.join(" "));
     // display current word, all previously guessed words
+  $("#displayLetters").text(this.displayLetters.join(" "));
+  //display available alphabet
+  $("#availableLetters").text(this.availableLetters.join(" "));
+  //display letters that have been guessed so Far
+  $("#alreadyGuessed").text(this.guessLetters.join(" "));
+  //display scores for player and computer-knight
+  $("#player_score").text(this.score);
+  $("#computer_score").text(this.computer_score);
 }
 
 Phase.prototype.checkLetter = function(letter)
@@ -97,11 +112,35 @@ Phase.prototype.checkPhase = function()
 {
     //check if score === 0, trigger loss
     if (this.score <= 0) {
-        alert("loss!"); //replace with navigation to loss page
+      $('#end_state').show();
+      $('#total_loss').show();
+      $("#play_state").hide();
     }
     // then if all of displayPhrase is filled in, trigger win
-    if (this.roundIndex > this.roundOrder.length) {
-        alert("Winzzz!"); //replace with navigation to win page
+    if (this.displayPhrase.join("").indexOf("_") < 0) {
+      var player_strength = this.score + (Math.floor(Math.random()*10));
+      var computer_strength = this.computer_score + (Math.floor(Math.random()*10));
+      var battle_result = player_strength - computer_strength;
+      if (battle_result < 0)
+      {
+        this.score = 0;
+        this.computer_score = 0;
+        oFormObject.elements["player_score"].value = this.score;
+        oFormObject.elements["computer_score"].value = this.computer_score;
+        $('#end_state').show();
+        $("#battle_lose").show();
+        $("#play_state").hide();
+
+
+        //Lovely Animation
+      } else {
+        this.computer_score = 0;
+        oFormObject.elements["player_score"].value = this.score;
+        oFormObject.elements["computer_score"].value = this.computer_score;
+        $('#end_state').show();
+        $("#battle_win").show();
+        $("#play_state").hide();
+      }
     }
 }
 
@@ -110,20 +149,42 @@ Phase.prototype.checkRound = function()
     // check if display array matches the current word, initialize if yes.
     if (this.displayLetters.join() === this[this.currentWord].join() )
     {
-        for(i = 0; i < this.numberOfWords; i++) {
+        for(i = 0; i <= this.numberOfWords; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
-                this.displayPhrase.splice(i, 1, this[this.currentWord]);
+                this.displayPhrase.splice(i, 1, this[this.currentWord].join(""));
             }
         }
         this.roundIndex ++;
-        this.initialize();
+        if (this.roundIndex < this.numberOfWords) {
+          this.initialize();
+        }
     }
 }
 
 
 
 $(document).ready(function(){
+// var phase = new Phase();
+phase.initialize();
+phase.display();
 
+  $("#guess_letter_form").on("input", function() {
+    var guessedLetter = ($("input#guess_letter").val());
+    phase.checkLetter(guessedLetter);
+    phase.checkRound();
+    phase.checkPhase();
+    phase.display();
+    $("input#guess_letter").val("");
+  });
+
+  $("#guess_letter_form").submit(function(event) {
+    event.preventDefault();
+  });
+
+  // $("#guess_letter_form").submit(function(event) {
+  //   event.preventDefault();
+  //   var guessedLetter = ($("input#guess_letter").val());
+  // });
     // $(".box").click(function(){
     //     var length = Object.keys(game).length;
     //     var rando = Math.floor((Math.random() * length) + 1);

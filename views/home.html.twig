@@ -15,24 +15,75 @@
         <title>Concept Testr</title>
     </head>
     <body>
-        <div class="container">
-            <div class="jumbotron">
-                <p>{{phase|json_encode|raw}}</p>
+      <div class="container" id="end_state">
+        <div id="total_loss" class="">
+          <h1>Sorry, you failed to guess before your army was slaughtered.</h1>
+          <form class="" action="/total_loss" method="get">
+            <button class="btn btn-danger" type="submit" name="button">Try again!</button>
+          </form>
+        </div>
+        <div id="battle_win" class="">
+          <h1>Congratulations, your army won!</h1>
+          <form class="" action="/win_condition" method="post">
+            <input type="hidden" name="player_score" value="">
+            <input type="hidden" name="computer_score" value="">
+            <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
+          </form>
+        </div>
+        <div id="battle_lose" class="">
+          <h1>Sorry, your army lost</h1>
+          <form class="" action="/loss_condition" method="post">
+            <input type="hidden" name="player_score" value="">
+            <input type="hidden" name="computer_score" value="">
+            <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
+          </form>
+        </div>
+
+      </div>
+        <div class="container" id="play_state">
+          <div class="row">
+            <div class="col-md-4 left">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight">
             </div>
+            <div class="col-md-4 middle">
+              <h3>animations!</h3>
+            </div>
+            <div class="col-md-4 right">
+              <img src="../img/Knight-graphic-right.png" alt="A picture of a knight" id="computer-knight">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 left">
+              <h2>Soldiers remaining: <span id="player_score">Scores</span></h2>
+            </div>
+            <div class="col-md-6 right">
+              <h2>Soldiers remaining: <span id="computer_score">Scores</span></h2>
+            </div>
+          </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="box" id="left_square">
-                        <h2>Phrase in this box</h2>
+                        <h2 id="displayPhrase">Phrase in this box</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="box" id="center_square">
-                        <h2>Word in this box</h2>
+                        <h2 id="displayLetters">Word in this box</h2>
+                        <h3>Letters guessed so far:</h3>
+                        <h3 id="alreadyGuessed"></h3>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="box" id="right_square">
-                        <h2>Alphabet in this box?</h2>
+                        <h2 id="availableLetters">Alphabet in this box?</h2>
+                        <br>
+                        <form id="guess_letter_form">
+                          <div class="form-group">
+                            <label for="guess_letter">Guess a Letter:</label>
+                            <input type="text" id="guess_letter" class="form-control">
+                          </div>
+                          <!-- <button type="submit" class="btn btn-info">Guess!</button> -->
+                        </form>
                     </div>
                 </div>
             </div>
