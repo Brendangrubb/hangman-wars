@@ -4,7 +4,7 @@ function Phase() {
     this.phrase = "Fear is the path to the dark side";
     this.phrasePositions = [1,2,3,4,5,3,6,7];
     this.numberOfWords = 7;
-    this.roundOrder = [3,4,1,6,2,7,5]; //randomize on server
+    this.roundOrder = [7,4,1,6,2,3,5]; //randomize on server
     this.roundIndex = 0;
     this.currentword = "";
     this.word1 = ["f","e","a","r"];
@@ -111,7 +111,7 @@ Phase.prototype.checkPhase = function()
         alert("loss!"); //replace with navigation to loss page
     }
     // then if all of displayPhrase is filled in, trigger win
-    if (this.roundIndex > this.roundOrder.length) {
+    if (this.displayPhrase.join("").indexOf("_") < 0) {
         alert("Winzzz!"); //replace with navigation to win page
     }
 }
@@ -121,13 +121,16 @@ Phase.prototype.checkRound = function()
     // check if display array matches the current word, initialize if yes.
     if (this.displayLetters.join() === this[this.currentword].join() )
     {
-        for(i = 0; i < this.numberOfWords; i++) {
+        for(i = 0; i <= this.numberOfWords; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
                 this.displayPhrase.splice(i, 1, this[this.currentword].join(""));
             }
         }
         this.roundIndex ++;
-        this.initialize();
+        // this.checkPhase();
+        if (this.roundIndex < this.numberOfWords) {
+          this.initialize();
+        }
     }
 }
 
@@ -140,12 +143,15 @@ phase.display();
 
   $("#guess_letter_form").on("input", function() {
     var guessedLetter = ($("input#guess_letter").val());
-    alert(guessedLetter);
     phase.checkLetter(guessedLetter);
-    phase.checkPhase();
     phase.checkRound();
+    phase.checkPhase();
     phase.display();
     $("input#guess_letter").val("");
+  });
+
+  $("#guess_letter_form").submit(function(event) {
+    event.preventDefault();
   });
 
   // $("#guess_letter_form").submit(function(event) {

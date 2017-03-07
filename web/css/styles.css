@@ -1,5 +1,6 @@
 body {
   background: url('../img/hangman-play-headerbg.jpg');
+  background-color: #9ece9c;
   background-repeat: no-repeat;
   background-size: 100%;
   position: fixed;
