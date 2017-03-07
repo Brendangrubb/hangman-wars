@@ -89,10 +89,12 @@ Phase.prototype.display = function()
 Phase.prototype.checkLetter = function(letter)
 {
     //add to guessed letters,
-    this.guessLetters.push(letter);
+
     // remove from available letters,
-    var indexAlpha = this.availableLetters.indexOf(letter);
-    this.availableLetters.splice(indexAlpha, 1, "_");
+    if (this.availableLetters.indexOf(letter) >= 0) {
+      var indexAlpha = this.availableLetters.indexOf(letter);
+      this.availableLetters.splice(indexAlpha, 1, "_");
+    }
     // decrement score or update display as appropriate
     var isCorrect = (this[this.currentWord].indexOf(letter) >= 0);
     if (isCorrect)
@@ -101,10 +103,16 @@ Phase.prototype.checkLetter = function(letter)
         {
             if (letter === this[this.currentWord][i]){
                 this.displayLetters.splice(i,1,letter);
+                if (this.guessLetters.indexOf(letter) < 0) {
+                  this.guessLetters.push(letter);
+                }
             }
         }
     } else {
+      if (this.guessLetters.indexOf(letter) < 0) {
+        this.guessLetters.push(letter);
         this.score -= 1;
+      }
     }
 }
 
