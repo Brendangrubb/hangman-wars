@@ -4,7 +4,7 @@ function Phase() {
     this.phrase = "Fear is the path to the dark side";
     this.phrasePositions = [1,2,3,4,5,3,6,7];
     this.numberOfWords = 7;
-    this.roundOrder = [2,4,1,6,3,7,5]; //randomize on server
+    this.roundOrder = [3,4,1,6,2,7,5]; //randomize on server
     this.roundIndex = 0;
     this.currentword = "";
     this.word1 = ["f","e","a","r"];
@@ -64,8 +64,6 @@ Phase.prototype.initialize = function()
     }
     // set available letters to full alphabet
     this.availableLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-    this.roundIndex ++;
 }
 
 Phase.prototype.display = function()
@@ -81,10 +79,10 @@ Phase.prototype.checkLetter = function(letter)
     var indexAlpha = this.availableLetters.indexOf(letter);
     this.availableLetters.splice(indexAlpha, 1, "_");
     // decrement score or update display as appropriate
-    var isCorrect = (this[this.currentword].indexOf(letter) >= 0)
+    var isCorrect = (this[this.currentword].indexOf(letter) >= 0);
     if (isCorrect)
     {
-        for (i=0; i<this[this.currentword];i++)
+        for (i=0; i<this[this.currentword].length;i++)
         {
             if (letter === this[this.currentword][i]){
                 this.displayLetters.splice(i,1,letter);
@@ -110,14 +108,14 @@ Phase.prototype.checkPhase = function()
 Phase.prototype.checkRound = function()
 {
     // check if display array matches the current word, initialize if yes.
-    if (this.displayLetters.join() === this[currentword].join() )
+    if (this.displayLetters.join() === this[this.currentword].join() )
     {
         for(i = 0; i < this.numberOfWords; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
-                this.displayPhrase.splice(this.phrasePositions[i], 1, this[currentword]);
+                this.displayPhrase.splice(i, 1, this[this.currentword]);
             }
         }
-
+        this.roundIndex ++;
         this.initialize();
     }
 }
@@ -126,11 +124,11 @@ Phase.prototype.checkRound = function()
 
 $(document).ready(function(){
 
-    $(".box").click(function(){
-        var length = Object.keys(game).length;
-        var rando = Math.floor((Math.random() * length) + 1);
-        $(this).css("background-color", game["color" + rando]);
-
-    });
+    // $(".box").click(function(){
+    //     var length = Object.keys(game).length;
+    //     var rando = Math.floor((Math.random() * length) + 1);
+    //     $(this).css("background-color", game["color" + rando]);
+    //
+    // });
 
 });

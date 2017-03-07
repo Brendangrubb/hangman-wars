@@ -6,8 +6,10 @@
         <script src="js/jquery-3.1.1.js"></script>
         <script src="js/scripts.js"></script>
         <script>
-        var game = JSON.parse({{game|json_encode|raw}});
-        Object.setPrototypeOf(game,Game.prototype);
+
+        var phase = new Phase();
+        // var game = JSON.parse({{game|json_encode|raw}});
+        // Object.setPrototypeOf(game,Phase.prototype);
 
         </script>
         <meta charset="utf-8">
