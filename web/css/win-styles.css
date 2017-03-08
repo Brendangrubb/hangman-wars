@@ -1,89 +1,180 @@
-#sub_1, #sub_2, #sub_3, #sub_4, #sub_5, #sub_6, #sub_7, #sub_8, #sub_9, #sub_10, #sub_11, #sub_12, #sub_13, #sub_14 {
-  display: none;
-}
-
 body {
-  background: url('../img/Hangman-map.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  position: fixed;
-  width: 100%;
-  background-attachment: fixed;
+    background: url('../img/Hangman-map.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: fixed;
+    width: 100%;
+    background-attachment: fixed;
+    animation: backround-lightning 5s infinite;
+    font-family: 'Cinzel Decorative', cursive;
 }
 
-.btn {
-  margin: 5%;
+button {
+    background-color: rgba(138, 7, 7, 1);
+    color: white;
+}
+
+@keyframes backround-lightning {
+    0% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    40% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    41% {
+        background-color: rgba(169,169,169, 0.4);
+    }
+    42% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    45% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    46% {
+        background-color: rgba(169,169,169, 0.3);
+    }
+    47% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    74% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    75% {
+        background-color: rgba(169,169,169, 0.6);
+    }
+    76% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    100% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
 }
 
 .logo {
-  text-align: center;
-  margin-top: 5%;
-}
-
-.hidden_menu {
-  background: rgba(183, 137, 88, 0.5);
-  padding: 2px;
-  width: 200px;
-  border-radius: 15px;
+    display: none;
+    text-align: center;
+    margin-top: 5%;
 }
 
 .final-win-div {
-    background-color: rgba(57, 101, 69, 0.34);
+    background-color: rgba(169,169,169, 0.4);
     text-align: center;
+    margin-top: 150px;
     margin-left: auto;
     margin-right: auto;
-    border: 3px solid black;
+    padding: 5px;
     border-radius: 15px;
-    width: 1000px;
-    height: 500px;
+    width: 1200px;
+    height: 700px;
+}
+.final-win-div2 {
+    display: none;
+    background-color: rgba(169,169,169, 0.4);
+    text-align: center;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 15px;
+    width: 1200px;
+    height: 700px;
+}
+.final-logo {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1200px;
+    height: 700px;
+}
+
+.new-game-button {
+    display: none;
+    text-align: center;
+    margin-top: -115px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1200px;
+    height: 700px;
 }
 
 #final1 {
-    animation: final1 4s infinite;
+    animation: final1 5s infinite;
+    font-size: 50px;
 }
 
 
 @keyframes final1 {
-  0% {
-    color: black;
-  }
-  20% {
-      color: rgba(138, 7, 7, 0.65)
-  }
-  40% {
-      color: rgba(138, 7, 7, 0.65)
-  }
-  41% {
-      color: white
-  }
-  42% {
-      color: rgba(138, 7, 7, 0.65)
-  }
-  80% {
-      color: rgba(138, 7, 7, 0.65)
-  }
-  100% {
-      color: black;
-  }
+    0% {
+        color: black;
+    }
+    20% {
+        color: rgba(138, 7, 7, 1)
+    }
+    40% {
+        color: rgba(138, 7, 7, 1)
+    }
+    41% {
+        color: white
+    }
+    42% {
+        color: rgba(138, 7, 7, 1)
+    }
+    45% {
+        color: rgba(138, 7, 7, 1)
+    }
+    46% {
+        color: white
+    }
+    47% {
+        color: rgba(138, 7, 7, 1)
+    }
+    74% {
+        color: rgba(138, 7, 7, 1)
+    }
+    75% {
+        color: white
+    }
+    76% {
+        color: rgba(138, 7, 7, 1)
+    }
+    80% {
+        color: rgba(138, 7, 7, 1)
+    }
+    100% {
+        color: black;
+    }
 
 }
 #final2 {
     display: none;
+    font-size: 36px;
+    color: rgba(119, 6 ,6, 1)
 }
 #final3 {
     display: none;
+    font-size: 30px;
+    color: #8a0707
 }
 #final4 {
     display: none;
+    font-size: 25px;
+    color: #d50b0b
 }
 #final5 {
     display: none;
+    font-size: 20px;
+    color: #fde1e1
 }
 #final6 {
     display: none;
+    font-size: 20px;
+    color: #fef4f4
 }
-
-
-#play_button_1, #play_button_2, #play_button_3, #play_button_4, #play_button_5, #play_button_6, #play_button_7, #play_button_8, #play_button_9, #play_button_10, #play_button_11, #play_button_12, #play_button_13, #play_button_14 {
-  margin: 10px;
+#final7 {
+    font-size: 50px;
+    color: rgba(138, 7, 7, 1)
 }

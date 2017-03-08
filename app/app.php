@@ -72,5 +72,10 @@ date_default_timezone_set('America/Los_Angeles');
    return $app['twig']->render("final-win.html.twig");
  });
 
+ $app->post('/final-win-route', function() use ($app) { // PAGE TO ROUTE PLAY AGAIN BUTTON
+
+   return $app->redirect("/");
+ });
+
  return $app;
  ?>
