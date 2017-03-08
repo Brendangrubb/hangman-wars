@@ -154,7 +154,7 @@ Phase.prototype.checkRound = function()
     // check if display array matches the current word, initialize if yes.
     if (this.displayLetters.join() === this[this.currentWord].join() )
     {
-        for(i = 0; i <= this.numberOfWords; i++) {
+        for(i = 0; i <= this.phrasePositions.length; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
                 this.displayPhrase.splice(i, 1, this[this.currentWord].join(""));
             }

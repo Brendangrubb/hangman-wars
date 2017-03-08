@@ -45,7 +45,11 @@
         </div>
         <div class="col-md-3" id="stage_2">
           <div id="Chaucer">
+            {% if state.realm_two == true %}
             <button type="button" name="button" id="button_3" class="btn btn-success">Chaucer</button>
+            {% else %}
+              <button type="button" name="button" class="btn btn-success disabled">Chaucer</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_3">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="3">
@@ -59,7 +63,11 @@
             </div>
           </div>
           <div id="Poe">
+            {% if state.realm_two == true %}
             <button type="button" name="button" id="button_4" class="btn btn-success">Poe</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Poe</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_4">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="4">
@@ -73,7 +81,11 @@
             </div>
           </div>
           <div id="Woolf">
+            {% if state.realm_two == true %}
             <button type="button" name="button" id="button_5" class="btn btn-success">Woolf</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Woolf</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_5">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="5">
@@ -89,7 +101,11 @@
         </div>
         <div class="col-md-2" id="stage_3">
           <div id="Austen">
+            {% if state.realm_three == true %}
             <button type="button" name="button" id="button_8" class="btn btn-success">Austen</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Austen</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_8">
               <form class="centertest" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="8">
@@ -103,7 +119,11 @@
             </div>
           </div>
           <div id="Tolstoy">
+            {% if state.realm_three == true %}
             <button type="button" name="button" id="button_6" class="btn btn-success">Tolstoy</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Tolstoy</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_6">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="6">
@@ -117,7 +137,11 @@
             </div>
           </div>
           <div id="Twain">
+            {% if state.realm_three == true %}
             <button type="button" name="button" id="button_7" class="btn btn-success">Twain</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Twain</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_7">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="7">
@@ -131,7 +155,11 @@
             </div>
           </div>
           <div id="Wilde">
+            {% if state.realm_three == true %}
             <button type="button" name="button" id="button_9" class="btn btn-success">Wilde</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Wilde</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_9">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="9">
@@ -147,7 +175,11 @@
         </div>
         <div class="col-md-3" id="stage_4">
           <div id="Napoleon">
+            {% if state.realm_four == true %}
             <button type="button" name="button" id="button_10" class="btn btn-success">Napoleon</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Napoleon</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_10">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="10">
@@ -161,7 +193,11 @@
             </div>
           </div>
           <div id="Hemingway">
+            {% if state.realm_four == true %}
             <button type="button" name="button" id="button_11" class="btn btn-success">Hemingway</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Hemingway</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_11">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="11">
@@ -175,7 +211,11 @@
             </div>
           </div>
           <div id="Stevenson">
+            {% if state.realm_four == true %}
             <button type="button" name="button" id="button_12" class="btn btn-success">Stevenson</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Stevenson</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_12">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="12">
@@ -191,7 +231,11 @@
         </div>
         <div class="col-md-2" id="stage_5">
           <div id="Python">
-            <button type="button" name="button" id="button_13" class="btn btn-success">Python</button>
+            {% if state.realm_five == true %}
+            <button type="button" name="button" id="button_13" class="btn btn-success">Monty Python</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Monty Python</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_13">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="13">
@@ -205,7 +249,11 @@
             </div>
           </div>
           <div id="StarWars">
-            <button type="button" name="button" id="button_14" class="btn btn-success">StarWars</button>
+            {% if state.realm_five == true %}
+            <button type="button" name="button" id="button_14" class="btn btn-success">Star Wars</button>
+            {% else %}
+            <button type="button" name="button" class="btn btn-success disabled">Star Wars</button>
+            {% endif %}
             <div class="hidden_menu" id="sub_14">
               <form class="" action="/gameplay/{{ state_id }}" method="post">
                 <input type="hidden" name="author_id" value="14">

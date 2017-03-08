@@ -32,7 +32,7 @@ date_default_timezone_set('America/Los_Angeles');
  $app->post("/map/{id}", function($id) use ($app) {
    $state = GameState::find($id);
 
-   return $app['twig']->render("map.html.twig", array('state_id' => $state->id));
+   return $app['twig']->render("map.html.twig", array('state' => $state, 'state_id' => $state->id));
  });
 
  $app->post("/gameplay/{id}", function($id) use ($app) {
@@ -55,7 +55,7 @@ date_default_timezone_set('America/Los_Angeles');
    $state = GameState::find($state_id);
    $state->updateProperty("current_score",0);
 
-   return $app['twig']->render("map.html.twig", array('state_id' => $state->id));
+   return $app['twig']->render("map.html.twig", array('state' => $state, 'state_id' => $state->id));
  });
 
  $app->post("/win_condition", function() use ($app) {
@@ -72,7 +72,7 @@ date_default_timezone_set('America/Los_Angeles');
   {
     return $app->redirect("/final-win");
   }
-   return $app['twig']->render("map.html.twig", array('state_id' => $state->id));
+   return $app['twig']->render("map.html.twig", array('state' => $state, 'state_id' => $state->id));
  });
 
  return $app;
