@@ -4,6 +4,7 @@ date_default_timezone_set('America/Los_Angeles');
 
  require_once __DIR__ . '/../vendor/autoload.php';
  require_once __DIR__ . '/../src/Phase.php';
+ require_once __DIR__ . '/../src/GameState.php';
 
  $app = new Silex\Application();
 
@@ -21,14 +22,14 @@ date_default_timezone_set('America/Los_Angeles');
      'twig.path' => __DIR__ . '/../views/'
  ]);
 
- $app->get("/start_page", function() use ($app) {
+ $app->get("/", function() use ($app) {
    $start_game = new GameState();
    $start_game->save();
 
    return $app['twig']->render("start.html.twig", array('game_id' => $start_game->id));
  });
 
- $app->get("/map/{id}", function($id) use ($app) {
+ $app->post("/map/{id}", function($id) use ($app) {
    $state = GameState::find($id);
 
    return $app['twig']->render("map.html.twig", array('state_id' => $state->id));
@@ -71,7 +72,7 @@ date_default_timezone_set('America/Los_Angeles');
   {
     return $app->redirect("/final-win");
   }
-   return $app['twig']->redirect("/map/{$state_id}"));
+   return $app['twig']->redirect("/map/{$state_id}");
  });
 
  return $app;
