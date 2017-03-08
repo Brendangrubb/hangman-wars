@@ -22,6 +22,7 @@ date_default_timezone_set('America/Los_Angeles');
      'twig.path' => __DIR__ . '/../views/'
  ]);
 
+
  $app->get("/", function() use ($app) {
    $start_game = new GameState();
    $start_game->save();
@@ -73,6 +74,16 @@ date_default_timezone_set('America/Los_Angeles');
     return $app->redirect("/final-win");
   }
    return $app['twig']->render("map.html.twig", array('state' => $state, 'state_id' => $state->id));
+ });
+
+ $app->get('/final-win', function() use ($app) { // PAGE TO DISPLAY WITH FINAL GAME WIN
+
+   return $app['twig']->render("final-win.html.twig");
+ });
+
+ $app->post('/final-win-route', function() use ($app) { // PAGE TO ROUTE PLAY AGAIN BUTTON
+
+   return $app->redirect("/map");
  });
 
  return $app;

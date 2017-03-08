@@ -1,0 +1,180 @@
+body {
+    background: url('../img/Hangman-map.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: fixed;
+    width: 100%;
+    background-attachment: fixed;
+    /*animation: backround-lightning 5s infinite;*/
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+@keyframes backround-lightning {
+    0% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    40% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    41% {
+        background-color: rgba(169,169,169, 0.4);
+    }
+    42% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    45% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    46% {
+        background-color: rgba(169,169,169, 0.3);
+    }
+    47% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    74% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    75% {
+        background-color: rgba(169,169,169, 0.6);
+    }
+    76% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+    100% {
+        background-color: rgba(36, 70, 105, 0.0);
+    }
+}
+
+button {
+    background-color: rgba(138, 7, 7, 1);
+    color: white;
+}
+
+.logo {
+    display: none;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.final-win-div {
+    background-color: rgba(169,169,169, 0.4);
+    text-align: center;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border-radius: 15px;
+    width: 1200px;
+    height: 700px;
+}
+.final-win-div2 {
+    display: none;
+    background-color: rgba(169,169,169, 0.4);
+    text-align: center;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 15px;
+    width: 1200px;
+    height: 700px;
+}
+.final-logo {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1200px;
+    height: 700px;
+}
+
+.new-game-button {
+    display: none;
+    text-align: center;
+    margin-top: -115px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1200px;
+    height: 700px;
+}
+
+#final1 {
+    animation: final1 5s infinite;
+    font-size: 50px;
+}
+
+
+@keyframes final1 {
+    0% {
+        color: black;
+    }
+    20% {
+        color: rgba(138, 7, 7, 1)
+    }
+    40% {
+        color: rgba(138, 7, 7, 1)
+    }
+    41% {
+        color: white
+    }
+    42% {
+        color: rgba(138, 7, 7, 1)
+    }
+    45% {
+        color: rgba(138, 7, 7, 1)
+    }
+    46% {
+        color: white
+    }
+    47% {
+        color: rgba(138, 7, 7, 1)
+    }
+    74% {
+        color: rgba(138, 7, 7, 1)
+    }
+    75% {
+        color: white
+    }
+    76% {
+        color: rgba(138, 7, 7, 1)
+    }
+    80% {
+        color: rgba(138, 7, 7, 1)
+    }
+    100% {
+        color: black;
+    }
+
+}
+#final2 {
+    display: none;
+    font-size: 36px;
+    color: rgba(119, 6 ,6, 1)
+}
+#final3 {
+    display: none;
+    font-size: 30px;
+    color: #8a0707
+}
+#final4 {
+    display: none;
+    font-size: 25px;
+    color: #d50b0b
+}
+#final5 {
+    display: none;
+    font-size: 20px;
+    color: #fde1e1
+}
+#final6 {
+    display: none;
+    font-size: 20px;
+    color: #fef4f4
+}
+#final7 {
+    font-size: 50px;
+    color: rgba(138, 7, 7, 1)
+}
