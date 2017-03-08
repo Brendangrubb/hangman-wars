@@ -28,6 +28,31 @@
 
 ### ETC
 
+## To Be Done
+
+ user story:
+
+ player is presented with the map with all areas disabled except col 1, where 2 options.  player picks an option and difficulty and is transported to the game screen with the following useful data:  author id, number of additional troups from difficulty lvl.  game screen randomly picks a quote associated w/ author and game is played.  At end of phase player has either completely lost and has to start over or progresses to next map level.  information kicked forward is final score, author id of win.  program determines what realm the win occurred in and opens the next if applicable.  game state repeats until a win in zone 5, at which point final win.
+
+add get route into map:
+  pull gamestate info
+  draw map
+
+add post route into gameplay:
+  pull soldier count, author id, and appropriate phase object;
+
+add post route from gameplay with conditional result to map or win page:
+  author id, remaining soldiers,
+
+create method to update realms map based on author id;
+
+create final win page;
+
+clarify win/loss logic at end of phase with more communications
+
+adjust difficulty levels and default enemy soldier counts.
+
+populate quotes.
 
 &nbsp;
 ## Setup/Installation Requirements
