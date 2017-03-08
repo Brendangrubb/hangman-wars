@@ -25,16 +25,13 @@
         <div id="battle_win" class="">
           <h1>Congratulations, your army won!</h1>
           <form class="" action="/win_condition" method="post">
-            <input type="hidden" name="player_score" value="">
-            <input type="hidden" name="computer_score" value="">
+            <input type="hidden" name="final_score" value="" id="final_score">
             <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
           </form>
         </div>
         <div id="battle_lose" class="">
           <h1>Sorry, your army lost</h1>
           <form class="" action="/loss_condition" method="post">
-            <input type="hidden" name="player_score" value="">
-            <input type="hidden" name="computer_score" value="">
             <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
           </form>
         </div>

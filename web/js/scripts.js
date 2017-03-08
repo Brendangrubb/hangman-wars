@@ -19,7 +19,7 @@ function Phase() {
     this.displayLetters; //initialize funciton pushes underscores for lenght of selected word
     this.displayPhrase;
     this.score;
-    this.computer_score = 40;
+    this.computer_score;
     this.availableLetters;
 
 }
@@ -133,8 +133,6 @@ Phase.prototype.checkPhase = function()
       {
         this.score = 0;
         this.computer_score = 0;
-        oFormObject.elements["player_score"].value = this.score;
-        oFormObject.elements["computer_score"].value = this.computer_score;
         $('#end_state').show();
         $("#battle_lose").show();
         $("#play_state").hide();
@@ -143,8 +141,7 @@ Phase.prototype.checkPhase = function()
         //Lovely Animation
       } else {
         this.computer_score = 0;
-        oFormObject.elements["player_score"].value = this.score;
-        oFormObject.elements["computer_score"].value = this.computer_score;
+        document.getElementById("final_score").value = battle_result;
         $('#end_state').show();
         $("#battle_win").show();
         $("#play_state").hide();
@@ -180,8 +177,8 @@ phase.display();
     var guessedLetter = ($("input#guess_letter").val());
     phase.checkLetter(guessedLetter);
     phase.checkRound();
-    phase.checkPhase();
     phase.display();
+    phase.checkPhase();
     $("input#guess_letter").val("");
   });
 
