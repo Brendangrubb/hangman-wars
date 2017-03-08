@@ -39,6 +39,32 @@ body {
 }
 
 #final1 {
+    animation: final1 4s infinite;
+}
+
+
+@keyframes final1 {
+  0% {
+    color: black;
+  }
+  20% {
+      color: rgba(138, 7, 7, 0.65)
+  }
+  40% {
+      color: rgba(138, 7, 7, 0.65)
+  }
+  41% {
+      color: white
+  }
+  42% {
+      color: rgba(138, 7, 7, 0.65)
+  }
+  80% {
+      color: rgba(138, 7, 7, 0.65)
+  }
+  100% {
+      color: black;
+  }
 
 }
 #final2 {
