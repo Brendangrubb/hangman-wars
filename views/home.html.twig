@@ -2,9 +2,9 @@
 <html>
     <head>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/styles.css" type="text/css">
-        <script src="js/jquery-3.1.1.js"></script>
-        <script src="js/scripts.js"></script>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
+        <script src="../js/jquery-3.1.1.js"></script>
+        <script src="../js/scripts.js"></script>
         <script>
 
         var phase = {{phase|json_encode|raw}};
@@ -29,12 +29,16 @@
           <h1>Congratulations, your army won!</h1>
           <form class="" action="/win_condition" method="post">
             <input type="hidden" name="final_score" value="" id="final_score">
+            <input type="hidden" name="author_id" value="{{ author_id }}">
+            <input type="hidden" name="state_id" value="{{ state_id }}">
             <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
           </form>
         </div>
         <div id="battle_lose" class="">
           <h1>Sorry, your army lost</h1>
           <form class="" action="/loss_condition" method="post">
+            <input type="hidden" name="author_id" value="{{ author_id }}">
+            <input type="hidden" name="state_id" value="{{ state_id }}">
             <button class="btn btn-danger" type="submit" name="button">Next Level!</button>
           </form>
         </div>

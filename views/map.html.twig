@@ -17,7 +17,8 @@
           <div id="Shakespeare">
             <button type="button" name="button" id="button_1" class="btn btn-success">Shakespeare</button>
             <div class="hidden_menu" id="sub_1">
-              <form class="" action="/1" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="1">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -30,7 +31,8 @@
           <div id="Dickens">
             <button type="button" name="button" id="button_2" class="btn btn-success">Dickens</button>
             <div class="hidden_menu" id="sub_2">
-              <form class="" action="/2" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="2">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -45,7 +47,8 @@
           <div id="Chaucer">
             <button type="button" name="button" id="button_3" class="btn btn-success">Chaucer</button>
             <div class="hidden_menu" id="sub_3">
-              <form class="" action="/3" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="3">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -58,7 +61,8 @@
           <div id="Poe">
             <button type="button" name="button" id="button_4" class="btn btn-success">Poe</button>
             <div class="hidden_menu" id="sub_4">
-              <form class="" action="/4" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="4">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -69,24 +73,10 @@
             </div>
           </div>
           <div id="Woolf">
-            <button type="button" name="button" id="button_8" class="btn btn-success">Woolf</button>
-            <div class="hidden_menu" id="sub_8">
-              <form class="" action="/8" method="post">
-                <select class="" name="difficulty">
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>
-                <button type="submit" name="button" class="btn btn-info" id="play_button_8">Play</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2" id="stage_3">
-          <div id="Austen">
-            <button type="button" name="button" id="button_5" class="btn btn-success">Austen</button>
+            <button type="button" name="button" id="button_5" class="btn btn-success">Woolf</button>
             <div class="hidden_menu" id="sub_5">
-              <form class="centertest" action="/5" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="5">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -96,10 +86,27 @@
               </form>
             </div>
           </div>
+        </div>
+        <div class="col-md-2" id="stage_3">
+          <div id="Austen">
+            <button type="button" name="button" id="button_8" class="btn btn-success">Austen</button>
+            <div class="hidden_menu" id="sub_8">
+              <form class="centertest" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="8">
+                <select class="" name="difficulty">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+                <button type="submit" name="button" class="btn btn-info" id="play_button_8">Play</button>
+              </form>
+            </div>
+          </div>
           <div id="Tolstoy">
             <button type="button" name="button" id="button_6" class="btn btn-success">Tolstoy</button>
             <div class="hidden_menu" id="sub_6">
-              <form class="" action="/6" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="6">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -112,7 +119,8 @@
           <div id="Twain">
             <button type="button" name="button" id="button_7" class="btn btn-success">Twain</button>
             <div class="hidden_menu" id="sub_7">
-              <form class="" action="/7" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="7">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -125,7 +133,8 @@
           <div id="Wilde">
             <button type="button" name="button" id="button_9" class="btn btn-success">Wilde</button>
             <div class="hidden_menu" id="sub_9">
-              <form class="" action="/9" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="9">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -140,7 +149,8 @@
           <div id="Napoleon">
             <button type="button" name="button" id="button_10" class="btn btn-success">Napoleon</button>
             <div class="hidden_menu" id="sub_10">
-              <form class="" action="/10" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="10">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -153,7 +163,8 @@
           <div id="Hemingway">
             <button type="button" name="button" id="button_11" class="btn btn-success">Hemingway</button>
             <div class="hidden_menu" id="sub_11">
-              <form class="" action="/11" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="11">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -166,7 +177,8 @@
           <div id="Stevenson">
             <button type="button" name="button" id="button_12" class="btn btn-success">Stevenson</button>
             <div class="hidden_menu" id="sub_12">
-              <form class="" action="/12" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="12">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -181,7 +193,8 @@
           <div id="Python">
             <button type="button" name="button" id="button_13" class="btn btn-success">Python</button>
             <div class="hidden_menu" id="sub_13">
-              <form class="" action="/13" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="13">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -194,7 +207,8 @@
           <div id="StarWars">
             <button type="button" name="button" id="button_14" class="btn btn-success">StarWars</button>
             <div class="hidden_menu" id="sub_14">
-              <form class="" action="/14" method="post">
+              <form class="" action="/gameplay/{{ state_id }}" method="post">
+                <input type="hidden" name="author_id" value="14">
                 <select class="" name="difficulty">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>

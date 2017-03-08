@@ -54,7 +54,7 @@ class Phase
     {
         // retreive the correct phrase from database
         $query = $GLOBALS['DB']->query("SELECT * FROM phrases WHERE author_id = {$author_id}");
-        $random = rand(1,5);
+        $random = rand(0,4);
         $result_array = $query->fetchAll();
         $result = $result_array[$random];
         $this->phrase = $result['phrase'];

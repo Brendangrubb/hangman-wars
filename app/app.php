@@ -55,7 +55,7 @@ date_default_timezone_set('America/Los_Angeles');
    $state = GameState::find($state_id);
    $state->updateProperty("current_score",0);
 
-   return $app['twig']->redirect("/map/{$state_id}");
+   return $app['twig']->render("map.html.twig", array('state_id' => $state->id));
  });
 
  $app->post("/win_condition", function() use ($app) {
@@ -72,7 +72,7 @@ date_default_timezone_set('America/Los_Angeles');
   {
     return $app->redirect("/final-win");
   }
-   return $app['twig']->redirect("/map/{$state_id}");
+   return $app['twig']->render("map.html.twig", array('state_id' => $state->id));
  });
 
  return $app;
