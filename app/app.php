@@ -26,7 +26,7 @@ date_default_timezone_set('America/Los_Angeles');
    $phase->setPhrase(2);
    $phase->setScore();
    $phase->setValues();
-   
+
    return $app['twig']->render("map.html.twig", array('phase' => $phase));
  });
 
@@ -65,6 +65,11 @@ date_default_timezone_set('America/Los_Angeles');
    $phase->setValues();
 
    return $app['twig']->render("map.html.twig", array('phase' => $phase));
+ });
+
+ $app->get('/final-win', function() use ($app) { // PAGE TO DISPLAY WITH FINAL GAME WIN
+
+   return $app['twig']->render("final-win.html.twig");
  });
 
  return $app;
