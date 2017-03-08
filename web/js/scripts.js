@@ -126,6 +126,7 @@ Phase.prototype.checkPhase = function()
     }
     // then if all of displayPhrase is filled in, trigger win
     if (this.displayPhrase.join("").indexOf("_") < 0) {
+      this.displayPhrase = this.phrase;
       var player_strength = this.score;
       var computer_strength = Math.floor(this.computer_score * (Math.random()+.5));
       var battle_result = player_strength - computer_strength;

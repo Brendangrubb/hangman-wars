@@ -43,7 +43,7 @@ date_default_timezone_set('America/Los_Angeles');
     // alter method to search by author id
     $phase->setPhrase($author_id);
     //alter set Score to balance game
-    $phase->setScore($difficulty);
+    $phase->setScore($difficulty, $state->current_score);
     $phase->setValues();
 
     return $app['twig']->render("home.html.twig", array('phase' => $phase, 'author_id' => $author_id, 'state_id' => $state->id));

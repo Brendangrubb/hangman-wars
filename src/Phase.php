@@ -35,17 +35,17 @@ class Phase
     }
 
 
-    function setScore($difficulty)
+    function setScore($difficulty, $player_score)
     {
         // initialize score
         if ($difficulty == "easy") {
-          $this->score = 60;
+          $this->score = 60 + $player_score;
           $this->computer_score = 20;
         } elseif ($difficulty == "medium") {
-          $this->score = 45;
+          $this->score = 45 + $player_score;
           $this->computer_score = 20;
         } elseif ($difficulty == "hard"){
-          $this->score = 30;
+          $this->score = 30 + $player_score;
           $this->computer_score = 20;
         }
     }
@@ -54,7 +54,7 @@ class Phase
     {
         // retreive the correct phrase from database
         $query = $GLOBALS['DB']->query("SELECT * FROM phrases WHERE author_id = {$author_id}");
-        $random = rand(0,0);
+        $random = rand(0,4);
         $result_array = $query->fetchAll();
         $result = $result_array[$random];
         $this->phrase = $result['phrase'];
