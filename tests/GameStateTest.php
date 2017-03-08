@@ -18,8 +18,9 @@
         {
             // Arrange
             $new_game_state = new GameState();
-            var_dump($new_game_state);
             $new_game_state->save();
+            var_dump($new_game_state);
+
 
             // Act
             $result = GameState::find($new_game_state->id);

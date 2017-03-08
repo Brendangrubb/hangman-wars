@@ -9,15 +9,15 @@
         public $realm_five;
         public $id;
 
-        function __construct()
+        function __construct($current_score=0,$realm_one = TRUE,$realm_two = FALSE,$realm_three = FALSE, $realm_four = FALSE, $realm_five = FALSE, $id=null)
         {
-            $this->current_score = 0;
-            $this->realm_one = TRUE;
-            $this->realm_two = FALSE;
-            $this->realm_three = FALSE;
-            $this->realm_four = FALSE;
-            $this->realm_five = FALSE;
-            $this->id = null;
+            $this->current_score = $current_score;
+            $this->realm_one = $realm_one;
+            $this->realm_two = $realm_two;
+            $this->realm_three = $realm_three;
+            $this->realm_four = $realm_four;
+            $this->realm_five = $realm_five;
+            $this->id = $id;
         }
 
         function setCurrentScore($new_score)
@@ -27,15 +27,25 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO game_state (current_score, realm_one, realm_two, realm_three, realm_four, realm_five) VALUES ({$this->current_score}, {$this->realm_one}, {$this->realm_two}, {$this->realm_three}, {$this->realm_four}, {$this->realm_five});");
+            $GLOBALS['DB']->exec("INSERT INTO game_state (current_score, realm_one, realm_two, realm_three, realm_four, realm_five) VALUES ('{$this->current_score}', '{$this->realm_one}', '{$this->realm_two}', '{$this->realm_three}', '{$this->realm_four}', '{$this->realm_five}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function find($search_id)
         {
-            $found_game_state = $GLOBALS['DB']->query("SELECT * FROM game_state WHERE id = {$search_id};");
-            $found_game_state->setFetchMode(PDO::FETCH_CLASS, 'GameState');
-            $game_state = $found_game_state->fetch();
+            $found = $GLOBALS['DB']->query("SELECT * FROM game_state WHERE id = {$search_id};");
+            $game_state = null;
+            foreach ($found as $game)
+            {
+                $current_score = $game['current_score'];
+                $realm_one = ($game['realm_one']==1);
+                $realm_two = ($game['realm_two']==1);
+                $realm_three = ($game['realm_three']==1);
+                $realm_four = ($game['realm_four']==1);
+                $realm_five = ($game['realm_five']==1);            
+                $id = $game['id'];
+                $game_state = new GameState($current_score, $realm_one, $realm_two, $realm_three, $realm_four, $realm_five, $id);
+            }
             return $game_state;
         }
 
