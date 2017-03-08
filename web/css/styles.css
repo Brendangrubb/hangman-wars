@@ -1,5 +1,5 @@
 body {
-  background: url('../img/hangman-play-headerbg.jpg');
+  background: url('../img/hangman-play-headerblank.jpg');
   background-color: #9ece9c;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -8,8 +8,13 @@ body {
   background-attachment: fixed;
 }
 
+.logo {
+  text-align: center;
+  margin-top: 10%;
+}
+
 .container {
-  margin-top: 32%;
+  margin-top: 12%;
 }
 
 .left {

@@ -2,6 +2,15 @@
   display: none;
 }
 
+body {
+  background: url('../img/Hangman-map.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: fixed;
+  width: 100%;
+  background-attachment: fixed;
+}
+
 .btn {
   margin: 20%;
 }
