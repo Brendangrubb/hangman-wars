@@ -5,13 +5,8 @@ body {
     position: fixed;
     width: 100%;
     background-attachment: fixed;
-    animation: backround-lightning 5s infinite;
+    /*animation: backround-lightning 5s infinite;*/
     font-family: 'Cinzel Decorative', cursive;
-}
-
-button {
-    background-color: rgba(138, 7, 7, 1);
-    color: white;
 }
 
 @keyframes backround-lightning {
@@ -48,6 +43,11 @@ button {
     100% {
         background-color: rgba(36, 70, 105, 0.0);
     }
+}
+
+button {
+    background-color: rgba(138, 7, 7, 1);
+    color: white;
 }
 
 .logo {
