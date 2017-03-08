@@ -36,7 +36,6 @@
 
             // Act
             $test_phase->setValues();
-            var_dump($test_phase);
 
             // Assert
             $this->assertEquals($phrase_id, $phrase_id);
