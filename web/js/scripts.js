@@ -19,7 +19,7 @@ function Phase() {
     this.displayLetters; //initialize funciton pushes underscores for lenght of selected word
     this.displayPhrase;
     this.score;
-    this.computer_score = 40;
+    this.computer_score;
     this.availableLetters;
 
 }
@@ -89,10 +89,12 @@ Phase.prototype.display = function()
 Phase.prototype.checkLetter = function(letter)
 {
     //add to guessed letters,
-    this.guessLetters.push(letter);
+
     // remove from available letters,
-    var indexAlpha = this.availableLetters.indexOf(letter);
-    this.availableLetters.splice(indexAlpha, 1, "_");
+    if (this.availableLetters.indexOf(letter) >= 0) {
+      var indexAlpha = this.availableLetters.indexOf(letter);
+      this.availableLetters.splice(indexAlpha, 1, "_");
+    }
     // decrement score or update display as appropriate
     var isCorrect = (this[this.currentWord].indexOf(letter) >= 0);
     if (isCorrect)
@@ -101,10 +103,16 @@ Phase.prototype.checkLetter = function(letter)
         {
             if (letter === this[this.currentWord][i]){
                 this.displayLetters.splice(i,1,letter);
+                if (this.guessLetters.indexOf(letter) < 0) {
+                  this.guessLetters.push(letter);
+                }
             }
         }
     } else {
+      if (this.guessLetters.indexOf(letter) < 0) {
+        this.guessLetters.push(letter);
         this.score -= 1;
+      }
     }
 }
 
@@ -125,8 +133,6 @@ Phase.prototype.checkPhase = function()
       {
         this.score = 0;
         this.computer_score = 0;
-        oFormObject.elements["player_score"].value = this.score;
-        oFormObject.elements["computer_score"].value = this.computer_score;
         $('#end_state').show();
         $("#battle_lose").show();
         $("#play_state").hide();
@@ -135,8 +141,7 @@ Phase.prototype.checkPhase = function()
         //Lovely Animation
       } else {
         this.computer_score = 0;
-        oFormObject.elements["player_score"].value = this.score;
-        oFormObject.elements["computer_score"].value = this.computer_score;
+        document.getElementById("final_score").value = battle_result;
         $('#end_state').show();
         $("#battle_win").show();
         $("#play_state").hide();
@@ -172,8 +177,8 @@ phase.display();
     var guessedLetter = ($("input#guess_letter").val());
     phase.checkLetter(guessedLetter);
     phase.checkRound();
-    phase.checkPhase();
     phase.display();
+    phase.checkPhase();
     $("input#guess_letter").val("");
   });
 

@@ -21,24 +21,50 @@ date_default_timezone_set('America/Los_Angeles');
      'twig.path' => __DIR__ . '/../views/'
  ]);
 
- $app->get("/", function() use ($app) {
+ $app->get("/map", function() use ($app) {
+   $phase = new Phase();
+   $phase->setPhrase(2);
+   $phase->setScore();
+   $phase->setValues();
+   
+   return $app['twig']->render("map.html.twig", array('phase' => $phase));
+ });
 
+ $app->get("/", function() use ($app) {
     $phase = new Phase();
     $phase->setPhrase(2);
     $phase->setScore();
     $phase->setValues();
+
     return $app['twig']->render("home.html.twig", array('phase' => $phase));
  });
 
- $app->post("/loss_condition", function() use ($app) {
-   $player_score = $_POST['player_score'];
-   $computer_score = $_POST['computer_score'];
-   echo($player_score);
-   echo($computer_score);
-   $game = new Gamer();
-   $game = json_encode($game);
+ $app->post("/total_loss", function() use ($app) {
+   $phase = new Phase();
+   $phase->setPhrase(2);
+   $phase->setScore();
+   $phase->setValues();
 
-   return $app['twig']->render("home.html.twig", array('game' => $game));
+   return $app['twig']->render("map.html.twig", array('phase' => $phase));
+ });
+
+ $app->post("/loss_condition", function() use ($app) {
+   $phase = new Phase();
+   $phase->setPhrase(2);
+   $phase->setScore();
+   $phase->setValues();
+
+   return $app['twig']->render("map.html.twig", array('phase' => $phase));
+ });
+
+ $app->post("/win_condition", function() use ($app) {
+   $player_score = $_POST['final_score'];
+   $phase = new Phase();
+   $phase->setPhrase(2);
+   $phase->setScore();
+   $phase->setValues();
+
+   return $app['twig']->render("map.html.twig", array('phase' => $phase));
  });
 
  return $app;
