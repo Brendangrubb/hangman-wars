@@ -65,9 +65,9 @@ date_default_timezone_set('America/Los_Angeles');
    $state->updateProperty("current_score",$player_score);
   //  find next realm by author_id, return string of property name
   $realm = GameState::findNextRealm($author_id);
-  $state->updateProperty("$realm", true);
+  $state->updateProperty("{$realm}", true);
   // check for final win
-  if ($state->finalWin())
+  if ($author_id >= 13)
   {
     return $app->redirect("/final-win");
   }

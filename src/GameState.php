@@ -37,6 +37,8 @@
             $this->{$property} = $value;
         }
 
+    
+
         static function getAll()
         {
             $found = $GLOBALS['DB']->query("SELECT * FROM game_state;");
@@ -54,6 +56,19 @@
                 array_push($game_state, $new_game_state);
             }
             return $game_state;
+        }
+
+        static function findNextRealm($author_id)
+        {
+          if ($author_id >= 10) {
+              return "realm_five";
+          } elseif ($author_id >= 6) {
+            return "realm_four";
+          } elseif ($author_id >= 3) {
+            return "realm_three";
+          } else  {
+            return "realm_two";
+          }
         }
 
         static function find($search_id)

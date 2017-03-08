@@ -35,18 +35,28 @@ class Phase
     }
 
 
-    function setScore()
+    function setScore($difficulty)
     {
         // initialize score
-        $this->score = 40;
-        $this->computer_score = 20;
+        if ($difficulty == "easy") {
+          $this->score = 60;
+          $this->computer_score = 20;
+        } elseif ($difficulty == "medium") {
+          $this->score = 45;
+          $this->computer_score = 20;
+        } elseif ($difficulty == "hard"){
+          $this->score = 30;
+          $this->computer_score = 20;
+        }
     }
 
-    function setPhrase($search_id)
+    function setPhrase($author_id)
     {
         // retreive the correct phrase from database
-        $query = $GLOBALS['DB']->query("SELECT * FROM phrases WHERE id = {$search_id}");
-        $result = $query->fetch();
+        $query = $GLOBALS['DB']->query("SELECT * FROM phrases WHERE author_id = {$author_id}");
+        $random = rand(1,5);
+        $result_array = $query->fetchAll();
+        $result = $result_array[$random];
         $this->phrase = $result['phrase'];
     }
     // need to remove duplicate words and fix phrase positions counting
