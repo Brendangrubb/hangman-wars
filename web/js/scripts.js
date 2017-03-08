@@ -63,7 +63,11 @@ Phase.prototype.initialize = function()
     this.displayLetters = [];
     for (i=0;i<this[this.currentWord].length;i++)
     {
+      if (this[this.currentWord][i].match(/[a-z]/i)== null) {
+        this.displayLetters.push(this[this.currentWord][i]);
+      } else {
         this.displayLetters.push("_");
+      }
     }
     // set available letters to full alphabet
     this.availableLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -96,12 +100,13 @@ Phase.prototype.checkLetter = function(letter)
       this.availableLetters.splice(indexAlpha, 1, "_");
     }
     // decrement score or update display as appropriate
-    var isCorrect = (this[this.currentWord].indexOf(letter) >= 0);
-    if (isCorrect)
+    var searchWord = this[this.currentWord].join("").toLowerCase();
+    var isCorrectIndex = searchWord.indexOf(letter) >= 0;
+    if (isCorrectIndex)
     {
         for (i=0; i<this[this.currentWord].length;i++)
         {
-            if (letter === this[this.currentWord][i]){
+            if (letter === this[this.currentWord][i].toLowerCase()){
                 this.displayLetters.splice(i,1,letter);
                 if (this.guessLetters.indexOf(letter) < 0) {
                   this.guessLetters.push(letter);
@@ -126,8 +131,9 @@ Phase.prototype.checkPhase = function()
     }
     // then if all of displayPhrase is filled in, trigger win
     if (this.displayPhrase.join("").indexOf("_") < 0) {
-      var player_strength = this.score + (Math.floor(Math.random()*10));
-      var computer_strength = this.computer_score + (Math.floor(Math.random()*10));
+      this.displayPhrase = this.phrase;
+      var player_strength = this.score;
+      var computer_strength = Math.floor(this.computer_score * (Math.random()+.5));
       var battle_result = player_strength - computer_strength;
       if (battle_result < 0)
       {
@@ -152,9 +158,9 @@ Phase.prototype.checkPhase = function()
 Phase.prototype.checkRound = function()
 {
     // check if display array matches the current word, initialize if yes.
-    if (this.displayLetters.join() === this[this.currentWord].join() )
+    if (this.displayLetters.join() === this[this.currentWord].join().toLowerCase() )
     {
-        for(i = 0; i <= this.numberOfWords; i++) {
+        for(i = 0; i <= this.phrasePositions.length; i++) {
             if (this.phrasePositions[i] === this.roundOrder[this.roundIndex]) {
                 this.displayPhrase.splice(i, 1, this[this.currentWord].join(""));
             }
