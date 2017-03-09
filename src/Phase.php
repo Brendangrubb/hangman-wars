@@ -34,6 +34,15 @@ class Phase
         return $this->phrase;
     }
 
+    function setPhrase($author_id)
+    {
+      // retreive the correct phrase from database
+      $query = $GLOBALS['DB']->query("SELECT * FROM phrases WHERE author_id = {$author_id}");
+      $random = rand(0,4);
+      $result_array = $query->fetchAll();
+      $result = $result_array[$random];
+      $this->phrase = $result['phrase'];
+    }
 
     function setScore($difficulty, $player_score)
     {
@@ -50,20 +59,12 @@ class Phase
         }
     }
 
-    function setPhrase($author_id)
-    {
-        // retreive the correct phrase from database
-        $query = $GLOBALS['DB']->query("SELECT * FROM phrases WHERE author_id = {$author_id}");
-        $random = rand(0,4);
-        $result_array = $query->fetchAll();
-        $result = $result_array[$random];
-        $this->phrase = $result['phrase'];
-    }
     // need to remove duplicate words and fix phrase positions counting
     function setValues()
     {
         // split phrase into array of individual words (explode by " ", return array of strings)
-        $split_phrase = explode(' ', $this->phrase);
+        $clean_phrase = preg_replace("/[^a-z\s]/i","",strtolower($this->phrase));
+        $split_phrase = explode(' ', $clean_phrase);
         //Initialize phrase positions with number of dummy characters equal to phrase length
         $this->phrasePositions = array_fill(0, count($split_phrase), "_");
         //count number of unique words in phrase (numberOfWords = phrase.length)
@@ -99,6 +100,14 @@ class Phase
         }
         //randomize order of roundOrder */
         shuffle($this->roundOrder);
+    }
+
+    static function findAuthorName($author_id)
+    {
+      $returned_authors = $GLOBALS['DB']->query("SELECT * FROM authors where id = {$author_id};");
+      $author = $returned_authors->fetch();
+      $author_name = $author['name'];
+      return $author_name;
     }
 
 }

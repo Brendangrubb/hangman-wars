@@ -41,6 +41,15 @@
             $this->assertEquals($phrase_id, $phrase_id);
         }
 
+        function test_findAuthorName()
+        {
+            $author_id = 3;
+
+            $result = Phase::findAuthorName($author_id);
+
+            $this->assertEquals("Chaucer", $result);
+        }
+
     }
 
 

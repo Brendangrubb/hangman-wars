@@ -4,11 +4,14 @@ $(document).ready(function() {
     event.preventDefault();
     $("#sub_1").toggle();
     $("#Dickens").toggleClass("no_whitespace");
+    $("#sub_2").hide();
+
   });
 
   $("#button_2").click(function(event) {
     event.preventDefault();
     $("#sub_2").toggle();
+    $("#sub_1").hide();
   });
 
   $("#button_3").click(function(event) {
