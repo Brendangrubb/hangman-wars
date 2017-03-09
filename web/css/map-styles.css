@@ -9,6 +9,7 @@ body {
   position: fixed;
   width: 100%;
   background-attachment: fixed;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 .row img {
@@ -21,6 +22,9 @@ text-align: center;
 
 .btn {
   margin: 5%;
+  text-shadow: 1px 1px 1px #000;
+  box-shadow: 2px 2px 2px #000;
+  background-color: rgba(138, 7, 7, 1);
 }
 
 .logo {

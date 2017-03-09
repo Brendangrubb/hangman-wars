@@ -6,6 +6,7 @@ body {
   position: fixed;
   width: 100%;
   background-attachment: fixed;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 .logo {
@@ -13,7 +14,7 @@ body {
   margin-top: 10%;
 }
 
-.container {
+#play_state, #battle_lose, #total_loss  {
   margin-top: 12%;
 }
 
@@ -87,4 +88,16 @@ body {
 
 #battle_win, #battle_lose, #total_loss, #end_state {
   display: none;
+}
+
+#battle_win {
+  margin-top: 5%;
+}
+
+#total_loss {
+  margin-top: 20%;
+}
+
+#battle_lose {
+  margin-top: 5%;
 }
