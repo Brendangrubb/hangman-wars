@@ -1,0 +1,54 @@
+body {
+    background: url('../img/Hangman-start1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: fixed;
+    width: 100%;
+    background-attachment: fixed;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+img {
+    margin-top: 45px;
+    width: 700px;
+}
+
+.btn {
+    background-color: rgba(138, 7, 7, 1);
+    color: white;
+    font-size: 40px;
+    padding: 20px 40px 20px 40px;
+    text-shadow: 2px 2px 3px #000;
+    box-shadow: 3px 3px 5px #000;
+}
+
+.new-game-button {
+    text-align: center;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.start-logo {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1200px;
+    height: 700px;
+}
+
+.instructions {
+    color: #E8E7E4;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #000;
+    background-color: rgba(169,169,169, 0.4);
+    text-align: center;
+    margin-top: -350px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    border-radius: 15px;
+    width: 1000px;
+}
