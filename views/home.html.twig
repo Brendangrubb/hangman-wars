@@ -32,24 +32,27 @@
           </div>
         </div>
         <div id="battle_win" class="">
-          <h1>"{{phase.phrase}}"</h1>
-          <h2>-{{author}}</h2>
-          <h1>Congratulations, you succeeded in sieging the castle, and still have <span class="scoring" id="end_score">Scores</span> troops remaining.</h1>
-          <form class="" action="/win_condition" method="post">
-            <input type="hidden" name="final_score" value="" id="final_score">
-            <input type="hidden" name="author_id" value="{{ author_id }}">
-            <input type="hidden" name="state_id" value="{{ state_id }}">
-            <button class="btn btn-danger" type="submit" name="button">March Onward!</button>
-          </form>
+          <div class="middle">
+            <img src="../img/victory.png" alt="" height="400px"/>
+            <h1>"{{phase.phrase}}"</h1>
+            <h2>-{{author}}</h2>
+            <h1>Congratulations, you succeeded in sieging the castle, and still have <span class="scoring" id="end_score">Scores</span> troops remaining.</h1>
+            <form class="" action="/win_condition" method="post">
+              <input type="hidden" name="final_score" value="" id="final_score">
+              <input type="hidden" name="author_id" value="{{ author_id }}">
+              <input type="hidden" name="state_id" value="{{ state_id }}">
+              <button class="btn btn-danger" type="submit" name="button">March Onward!</button>
+            </form>
+          </div>
         </div>
         <div id="battle_lose" class="">
-          <img src="../img/battlefield.png" alt="" />
-          <h1>"{{phase.phrase}}"</h1>
-          <h2>-{{author}}</h2>
-          <h1>Though you succeeded in winning this siege, all your current troops have been exhausted.</h1>
-          <h2>You must have at least a few survivors before you may press on!</h2>
-          <br>
           <div class="middle">
+            <img src="../img/battlefield.png" alt="" />
+            <h1>"{{phase.phrase}}"</h1>
+            <h2>-{{author}}</h2>
+            <h1>Though you succeeded in winning this siege, all your current troops have been exhausted.</h1>
+            <h2>You must have at least a few survivors before you may press on!</h2>
+            <br>
             <form class="" action="/loss_condition" method="post">
               <input type="hidden" name="author_id" value="{{ author_id }}">
               <input type="hidden" name="state_id" value="{{ state_id }}">
