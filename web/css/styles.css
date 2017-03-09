@@ -29,8 +29,24 @@ body {
   text-align: right;
 }
 
-#computer-knight, #player-knight1, #player-knight2, #player-knight3, #player-knight-death {
+.wordplay-section {
+  margin-top: 15%;
+}
+
+#computer-knight, #computer-knight2, #player-knight1, #player-knight2, #player-knight3 {
   width: 50%;
+}
+
+#computer-knight {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#computer-knight2 {
+  position: absolute;
+  top: 0px;
+  right: 20px;
 }
 
 #player-knight1 {
@@ -46,16 +62,16 @@ body {
 }
 
 #player-knight3 {
-  /*display: none;*/
   position:absolute;
   top: 0px;
   left: 50px;
 }
 
-#player-knight-death {
-    position:absolute;
-    top: 0px;
-    left: 50px;
+.player-knight-death {
+  width: 60%;
+  position:absolute;
+  top: 10px;
+  left: 50px;
 }
 
 #computer_score, #player_score {
