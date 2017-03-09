@@ -2,8 +2,10 @@
 <html>
     <head>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link rel="stylesheet" href="../css/styles.css" type="text/css">
         <script src="../js/jquery-3.1.1.js"></script>
+        <script src="../js/watch.js" type="text/javascript"></script>
         <script src="../js/scripts.js"></script>
         <script>
 
@@ -51,50 +53,54 @@
       </div>
         <div class="container" id="play_state">
           <div class="row">
-            <div class="col-md-4 left">
-              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight">
+            <div class="col-md-4 left" id="player-knights">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight1" class="animated fadeInLeftBig">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight2" class="animated fadeInLeftBig">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight3" class="animated fadeInLeftBig">
             </div>
-            <div class="col-md-4 middle">
-              <h3>animations!</h3>
+            <div class="col-md-4 middle" id="middle-animation">
             </div>
             <div class="col-md-4 right">
-              <img src="../img/ComputerKnight-graphic.png" alt="A picture of a knight" id="computer-knight">
+              <img src="../img/ComputerKnight-graphic.png" alt="A picture of a knight" id="computer-knight"class="animated fadeInRightBig">
+              <img src="../img/ComputerKnight-graphic.png" alt="A picture of a knight" id="computer-knight2" class="animated fadeInRightBig">
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 left">
-              <h2>Soldiers remaining: <span class="scoring" id="player_score">Scores</span></h2>
-            </div>
-            <div class="col-md-6 right">
-              <h2>Soldiers remaining: <span id="computer_score">Scores</span></h2>
-            </div>
-          </div>
+          <div class="wordplay-section">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="box" id="left_square">
-                        <h2 id="displayPhrase">Phrase in this box</h2>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="box" id="center_square">
-                        <h2 id="displayLetters">Word in this box</h2>
-                        <h3>Letters guessed so far:</h3>
-                        <h3 id="alreadyGuessed"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="box" id="right_square">
-                        <h2 id="availableLetters">Alphabet in this box?</h2>
-                        <br>
-                        <form id="guess_letter_form">
-                          <div class="form-group">
-                            <label for="guess_letter">Guess a Letter:</label>
-                            <input type="text" id="guess_letter" class="form-control">
-                          </div>
-                          <!-- <button type="submit" class="btn btn-info">Guess!</button> -->
-                        </form>
-                    </div>
-                </div>
+              <div class="col-md-6 left">
+                <h2>Soldiers remaining: <span id="player_score" class="scoring">Scores</span></h2>
+              </div>
+              <div class="col-md-6 right">
+                <h2>Soldiers remaining: <span id="computer_score">Scores</span></h2>
+              </div>
+            </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="box" id="left_square">
+                          <h2 id="displayPhrase">Phrase in this box</h2>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="box" id="center_square">
+                          <h2 id="displayLetters">Word in this box</h2>
+                          <h3>Letters guessed so far:</h3>
+                          <h3 id="alreadyGuessed"></h3>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="box" id="right_square">
+                          <h2 id="availableLetters">Alphabet in this box?</h2>
+                          <br>
+                          <form id="guess_letter_form">
+                            <div class="form-group">
+                              <label for="guess_letter">Guess a Letter:</label>
+                              <input type="text" id="guess_letter" class="form-control">
+                            </div>
+                            <!-- <button type="submit" class="btn btn-info">Guess!</button> -->
+                          </form>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </body>
