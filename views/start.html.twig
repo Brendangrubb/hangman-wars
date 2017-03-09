@@ -5,7 +5,7 @@
         <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
         <link rel="stylesheet" href="css/start-styles.css" type="text/css">
         <script src="js/jquery-3.1.1.js"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/start-scripts.js"></script>
         <title>Hangman Wars</title>
     </head>
   <body>
@@ -13,12 +13,19 @@
           <img src="../img/hangman-titleanimframes.gif" alt="Hangman Title Gif" />
       </div>
 
-    <div class="instructions">
-      <p>Pay the iron price. When you play the game of thrones, you win or you die. All men must die. More pigeon pie, please. Bastards are born of passion, aren't they? We don't despise them in Dorne. The War of the 5 kings. It's ten thousand miles between Kings landing and the wall. A good act does not wash out the bad, nor a bad act the good. Each should have its own reward. I am the shield that guards the realms of men. I pledge my life and honor to the Night's Watch, for this night and all the nights to come. The bear and the maiden fair.</p>
+    <div id="setup" class="instructions">
+      <p><span id="game-name">Hangman Wars</span> is an interactive word game based on the classic Hangman Game.  Players take on the role of a warlord seeking to conquer the land, and the only path to victory is to empower their soldiers by deducing the secret phrases of the authors of the land.</p>
+    </div>
+    <div id="tutorial" class="instructions">
+      <p>Each round of play, the player will select an author from the region and be given a hidden phrase taken from their work. They must guess each word in the phrase letter by letter, and when they guess incorrectly, a soldier dies.</p>
+      <p>When all five regions are conquered, they are declared the victor! When they guess the whole phrase, their soldiers assault the keep of the castle, and if enough survive, the player may conquer the next region.</p>
     </div>
 
     <form class="new-game-button" action="/map/{{ game_id }}" method="post">
-      <button type="submit" class="btn btn-warning">Play!</button>
+        <button type="submit" class="new-game btn btn-warning">Onward, to Battle!</button>
     </form>
+    <div class="tutorial-button-div">
+        <button class="btn" id="hideshow" type="button">Tutorial</button>
+    </div>
   </body>
 </html>
