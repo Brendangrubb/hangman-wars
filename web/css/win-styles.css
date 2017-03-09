@@ -59,7 +59,6 @@ img {
 
 
 .final-win-div {
-    display: none;
     animation: backround-lightning 5s infinite;
     background-color: rgba(169,169,169, 0.4);
     text-align: center;
@@ -74,7 +73,7 @@ img {
     /*border: 3px solid rgba(255, 255, 255, .1);*/
 }
 .final-win-div2 {
-    /*display: none;*/
+    display: none;
     animation: backround-lightning 5s infinite;
     background-color: rgba(169,169,169, 0.4);
     text-align: center;
@@ -88,7 +87,7 @@ img {
     height: 1235px;
 }
 .final-logo {
-    /*display: none;*/
+    display: none;
     text-align: center;
     margin-top: 30px;
     margin-left: auto;
@@ -99,7 +98,7 @@ img {
 }
 
 .new-game-button {
-    /*display: none;*/
+    display: none;
     text-align: center;
     margin-top: -200px;
     margin-left: auto;
@@ -164,37 +163,37 @@ img {
 
 }
 #final2 {
-    /*display: none;*/
+    display: none;
     font-size: 50px;
     text-shadow: 1px 1px 2px #000;
     color: rgba(119, 6 ,6, 1)
 }
 #final3 {
-    /*display: none;*/
+    display: none;
     font-size: 45px;
     text-shadow: 1px 1px 2px #000;
     color: rgba(119, 6 ,6, 1)
 }
 #final4 {
-    /*display: none;*/
+    display: none;
     font-size: 40px;
     text-shadow: 1px 1px 2px #000;
     color: rgba(119, 6 ,6, 1)
 }
 #final5 {
-    /*display: none;*/
+    display: none;
     font-size: 30px;
     text-shadow: 1px 1px 2px #000;
     color: rgba(119, 6 ,6, 1)
 }
 #final6 {
-    /*display: none;*/
+    display: none;
     font-size: 30px;
     text-shadow: 1px 1px 2px #000;
     color: #fef4f4
 }
 #final7 {
     text-shadow: 1px 1px 2px #000;
-    font-size: 85px;
+    font-size: 70px;
     color: rgba(138, 7, 7, 1)
 }
