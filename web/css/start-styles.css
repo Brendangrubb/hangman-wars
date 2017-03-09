@@ -52,3 +52,19 @@ img {
     border-radius: 15px;
     width: 1000px;
 }
+
+#inst1 {
+    display: none;
+}
+
+#inst2 {
+    display: none;
+}
+
+#inst3 {
+    display: none;
+}
+
+#inst4 {
+    display: none;
+}
