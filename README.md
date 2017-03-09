@@ -3,6 +3,7 @@
 
 &nbsp;
 ## Description
+  Hangman Wars is an interactive word game based on the classic Hangman Game.  Players take on the role of a warlord seeking to conquer the land, and the only path to victory is to empower their soldiers by deducing the secret phrases of the authors of the land.  Each round of play, the player will select an author from the region and be given a hidden phrase taken from their work.  They must guess each word in the phrase letter by letter, and when they guess incorrectly, a soldier dies.  When they guess the whole phrase, their soldiers assault the keep of the castle, and if enough survive, the player may conquer the next region.  When all five regions are conquered, they are declared the victor! 
 
 
 &nbsp;
