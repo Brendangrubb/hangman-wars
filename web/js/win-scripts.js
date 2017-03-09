@@ -1,5 +1,6 @@
 $(document).ready(function () {
     // $('#final1').fadeIn(500);
+    // $('#final1b').fadeIn(500);
     setInterval(function(){ $('#final2').fadeIn(1000); }, 2500);
     setInterval(function(){ $('#final3').fadeIn(1000); }, 6000);
     setInterval(function(){ $('#final4').fadeIn(1000); }, 9500);
