@@ -29,8 +29,33 @@ body {
   text-align: right;
 }
 
-#computer-knight, #player-knight {
+#computer-knight, #player-knight1, #player-knight2, #player-knight3, #player-knight-death {
   width: 50%;
+}
+
+#player-knight1 {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#player-knight2 {
+    position:absolute;
+    top: 0px;
+    left: 25px;
+}
+
+#player-knight3 {
+  display: none;
+    position:absolute;
+    top: 0px;
+    left: 50px;
+}
+
+#player-knight-death {
+    position:absolute;
+    top: 0px;
+    left: 50px;
 }
 
 #computer_score, #player_score {

@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link rel="stylesheet" href="../css/styles.css" type="text/css">
         <script src="../js/jquery-3.1.1.js"></script>
         <script src="../js/scripts.js"></script>
@@ -47,10 +48,12 @@
         <div class="container" id="play_state">
           <div class="row">
             <div class="col-md-4 left">
-              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight1">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight2" class="animated fadeInLeftBig">
+              <img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight3">
             </div>
-            <div class="col-md-4 middle">
-              <h3>animations!</h3>
+            <div class="col-md-4 middle" id="middle-animation">
+              <img src="../img/Knight-graphic-colors-anim.gif" alt="A picture of a knight" id="player-knight-death">
             </div>
             <div class="col-md-4 right">
               <img src="../img/ComputerKnight-graphic.png" alt="A picture of a knight" id="computer-knight">

@@ -179,6 +179,8 @@ $(document).ready(function(){
 phase.initialize();
 phase.display();
 
+$("#player-knight2").on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ($("#player-knight3").addClass('animated fadeInLeftBig') + ($("#player-knight3").show())));
+
   $("#guess_letter_form").on("input", function() {
     var guessedLetter = ($("input#guess_letter").val());
     phase.checkLetter(guessedLetter);
