@@ -46,10 +46,10 @@ body {
 }
 
 #player-knight3 {
-  display: none;
-    position:absolute;
-    top: 0px;
-    left: 50px;
+  /*display: none;*/
+  position:absolute;
+  top: 0px;
+  left: 50px;
 }
 
 #player-knight-death {

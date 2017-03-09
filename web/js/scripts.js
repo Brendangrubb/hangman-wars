@@ -178,8 +178,11 @@ $(document).ready(function(){
 // var phase = new Phase();
 phase.initialize();
 phase.display();
+watch(phase, "score", function() {
+  $("#middle-animation").prepend('<img src="../img/Knight-graphic-colors-anim.gif" alt="A picture of a knight" id="player-knight-death">');
+});
 
-$("#player-knight2").on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ($("#player-knight3").addClass('animated fadeInLeftBig') + ($("#player-knight3").show())));
+// $("#player-knight2").on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ($("#player-knight3").addClass('animated fadeInLeftBig') + ($("#player-knight3").show())));
 
   $("#guess_letter_form").on("input", function() {
     var guessedLetter = ($("input#guess_letter").val());
@@ -188,6 +191,7 @@ $("#player-knight2").on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanim
     phase.display();
     phase.checkPhase();
     $("input#guess_letter").val("");
+
   });
 
   $("#guess_letter_form").submit(function(event) {
