@@ -6,6 +6,7 @@ body {
   position: fixed;
   width: 100%;
   background-attachment: fixed;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 .logo {
