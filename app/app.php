@@ -46,8 +46,9 @@ date_default_timezone_set('America/Los_Angeles');
     //alter set Score to balance game
     $phase->setScore($difficulty, $state->current_score);
     $phase->setValues();
+    $author_name = Phase::findAuthorName($author_id);
 
-    return $app['twig']->render("home.html.twig", array('phase' => $phase, 'author_id' => $author_id, 'state_id' => $state->id));
+    return $app['twig']->render("home.html.twig", array('phase' => $phase, 'author_id' => $author_id, 'state_id' => $state->id, 'author'=> $author_name));
  });
 
  $app->post("/loss_condition", function() use ($app) {

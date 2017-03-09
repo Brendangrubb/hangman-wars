@@ -86,7 +86,7 @@ Phase.prototype.display = function()
   //display letters that have been guessed so Far
   $("#alreadyGuessed").text(this.guessLetters.join(" "));
   //display scores for player and computer-knight
-  $("#player_score").text(this.score);
+  $(".scoring").text(this.score);
   $("#computer_score").text(this.computer_score);
 }
 
