@@ -95,30 +95,42 @@ Phase.prototype.checkLetter = function(letter)
     //add to guessed letters,
 
     // remove from available letters,
-    if (this.availableLetters.indexOf(letter) >= 0) {
-      var indexAlpha = this.availableLetters.indexOf(letter);
-      this.availableLetters.splice(indexAlpha, 1, "_");
-    }
-    // decrement score or update display as appropriate
-    var searchWord = this[this.currentWord].join("").toLowerCase();
-    var isCorrectIndex = searchWord.indexOf(letter) >= 0;
-    if (isCorrectIndex)
-    {
-        for (i=0; i<this[this.currentWord].length;i++)
-        {
-            if (letter === this[this.currentWord][i].toLowerCase()){
-                this.displayLetters.splice(i,1,letter);
-                if (this.guessLetters.indexOf(letter) < 0) {
-                  this.guessLetters.push(letter);
-                }
-            }
-        }
-    } else {
-      if (this.guessLetters.indexOf(letter) < 0) {
-        this.guessLetters.push(letter);
-        this.score -= 1;
+  if (this.availableLetters.indexOf(letter) >= 0) {
+    var indexAlpha = this.availableLetters.indexOf(letter);
+    this.availableLetters.splice(indexAlpha, 1, "_");
+  }
+  // decrement score or update display as appropriate
+  var searchWord = this[this.currentWord].join("").toLowerCase();
+  var isCorrectIndex = searchWord.indexOf(letter) >= 0;
+  if (isCorrectIndex)
+  {
+      for (i=0; i<this[this.currentWord].length;i++)
+      {
+          if (letter === this[this.currentWord][i].toLowerCase()){
+              this.displayLetters.splice(i,1,letter);
+              if (this.guessLetters.indexOf(letter) < 0) {
+                this.guessLetters.push(letter);
+              }
+          }
+      }
+  } else {
+    if (this.guessLetters.indexOf(letter) < 0) {
+      this.guessLetters.push(letter);
+      this.score -= 1;
+      $("#player-knights").append('<img src="../img/Knight-graphic-colors-anim.gif" alt="A picture of a knight" class="player-knight-death">');
+      $("#player-knight3").remove();
+      $("#player-knights").append('<img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight3" class="animated fadeInLeftBig">');
+      if (this.score === 2) {
+        $("#player-knights").append('<img src="../img/Knight-graphic-colors-anim.gif" alt="A picture of a knight" class="player-knight-death">');
+        $("#player-knight3").remove();
+        $("#player-knight2").remove();
+        $("#player-knights").append('<img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight2" class="animated fadeInLeftBig">');
+      } else if (this.score === 1) {
+        $("#player-knights").empty();
+        $("#player-knights").append('<img src="../img/Knight-graphic.png" alt="A picture of a knight" id="player-knight1" class="animated fadeInLeftBig">');
       }
     }
+  }
 }
 
 Phase.prototype.checkPhase = function()
@@ -180,6 +192,7 @@ phase.initialize();
 phase.display();
 
   $("#guess_letter_form").on("input", function() {
+    $(".player-knight-death").remove();
     var guessedLetter = ($("input#guess_letter").val());
     phase.checkLetter(guessedLetter);
     phase.checkRound();
@@ -187,12 +200,6 @@ phase.display();
     phase.checkPhase();
     $("input#guess_letter").val("");
 
-    watch(phase, "score", function() {
-      $("#player-knights").append('<img src="../img/Knight-graphic-colors-anim.gif" alt="A picture of a knight" class="player-knight-death">');
-    });
-    callWatchers(phase, "score");
-
-    $("#player-knights").remove(".player-knight-death");
   });
 
   $("#guess_letter_form").submit(function(event) {
